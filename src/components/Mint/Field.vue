@@ -3,9 +3,10 @@
     <mt-field type="text" 
       label="用户名" 
       placeholder="请输入用户名" 
-      state="success"
+      :state="usernameState"
       disableClear
-      v-model="username">
+      v-model="username"
+      @blur.native.capture="checkUsername">
     </mt-field> 
 
     <mt-field type="password"

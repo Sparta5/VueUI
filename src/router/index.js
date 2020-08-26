@@ -7,9 +7,14 @@ import Index from '../views/Index.vue'
 import Register from '../views/Register'
 import Field from '../components/Mint/Field'
 import Login from '../components/Mint/Login.vue'
+import Navbar from '../components/Mint/Navbar'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path:'/navbar',
+    component:Navbar
+  },
   {
     path:'/login',//'login'前少了一个斜杆
     component:Login
