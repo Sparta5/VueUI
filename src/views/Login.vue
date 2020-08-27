@@ -43,13 +43,13 @@
     methods:{
         // 检测用户名
       checkUsername() {
-          let usernameRegExp=/^[a-zA-Z0-9_]$/;
+          let usernameRegExp=/^[a-zA-Z0-9_]{3,8}$/;
           if(usernameRegExp.test(this.username)){
             this.usernameState='success';
             return true;
           }else{
-              console.log(this.username)
-              console.log(usernameRegExp.test(this.username))
+              // console.log(this.username)
+              // console.log(usernameRegExp.test(this.username))
               this.usernameState='error'
               this.$toast({
                   message:"用户名错误",
@@ -79,9 +79,13 @@
       },
       submit(){
             if(this.checkUsername() && this.checkPassword()){
-                // return true;
-                console.log('1')
-            }}
+              if(this.username!="admin888" && this.password != "admin888"){
+                  this.$messagebox("登录提示","用户名登录失败");
+              }else{
+                this.$messagebox("登录提示","登录成功")
+              }
           }
+        }
+      }
     }
 </script>

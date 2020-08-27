@@ -3,6 +3,7 @@
 <!-- 顶部导航开始 -->
   <mt-header title="学前端，到学问">
     <router-link to="/" slot="left">
+               <!-- 返回图标 -->
     <mt-button icon="back" type="danger"></mt-button>
     </router-link>
   </mt-header>
@@ -44,13 +45,14 @@ export default {
    }
   },
   methods:{
+    //检测用户名
     checkUsername(){
       let usernameRegExp = /^[a-zA-Z0-9_]{6,12}$/; 
       if(usernameRegExp.test(this.username)){
         this.usernameState = 'success';
         return true;
       } else {
-        this.usernameState='success'
+        this.usernameState='error'
         this.$toast({
           message:"用户名错误",
           position:"middle",
@@ -58,10 +60,15 @@ export default {
         });
        return false
       }
-      let passwordRefExp = /^[a-zA-Z0-9]{8,20}$/;
+    },
+    //检测密码
+    checkPassword(){
+      let passwordRegExp = /^[a-zA-Z0-9]{8,20}$/;
      if(passwordRegExp.test(this.password)){
-        //return true;
+          this.passwordState='success'
+          return true;
       }  else {
+          this.passwordState='error'
           this.$toast({
               message:"密码错误",
               position:"middle",
@@ -69,20 +76,31 @@ export default {
           });
           return false;
       }
+    },
       // 3.在密码合法的前提下，再校验两次密码是否一致
+    checkConpassword(){
       if(this.password == this.password2){
-        //return true;
+        this.password2State='success'
+        return true;
       } else {
+          this.password2State='error'
           this.$toast({
               message:"两次密码不一致",
               position:"middle",
               duration:3000
           });
           return false;
-      }
+      }     
+    },
+    //提交信息检测
+    handle(){
+      if(this.username && this.password && this.password2){
         if(this.username == 'admin888'){
           this.$messagebox("注册提示","用户名已经被占用")
-        }
+        }else{
+          this.$messagebox("注册提示","注册成功")
+        }      
+      }      
     }
   }
 }

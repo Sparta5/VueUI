@@ -6,11 +6,16 @@ import Button from '../components/Mint/Button.vue'
 import Index from '../views/Index.vue'
 import Register from '../views/Register'
 import Field from '../components/Mint/Field'
-import Login from '../components/Mint/Login.vue'
-import Navbar from '../components/Mint/Navbar'
-Vue.use(VueRouter)
+import Login from '../views/Login.vue'
+import Navbar from '../components/Mint/Navbar.vue'
+import Cell from '../components/Mint/Cell.vue'
+Vue.use(VueRouter) 
 
 const routes = [
+  {
+    path:'/cell',
+    component:Cell
+  },
   {
     path:'/navbar',
     component:Navbar
@@ -55,5 +60,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+//抛出   匿名 { 创建对象
 export default router
