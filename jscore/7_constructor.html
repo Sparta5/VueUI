@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      sage:11,
+      intr:function(){
+        console.log(`I'm${this.name}I'm${this.sage}`)
+      }
+    }
+    var hmm={
+      sname:"Han Meimei",
+      sage:15,
+      intr:function(){
+        console.log(`I'm${this.name}I'm${this.sage}`)
+      }
+    }//以上代码重复没有可用性
+    function Student(sname,sage){
+      this.name=sname,
+      this.age=sage,
+      this.intr=function(){
+        console.log(`I'm${this.name}I'm${this.sage}`)
+      }
+    }
+    var bin=new Student("binbin",16);
+    var hui=new Student("huihui",17);
+    console.log(bin);
+    console.log(hui);
+  </script>
+</body>
+</html>
