@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function clone(oldObj){
+      if(oldObj==null){
+        return null
+      };
+      if(typeof oldObj!=="object"){
+        return oldObj
+      }
+      var newObj=Array.isArray(oldObj)?[]:{}
+      for(var key in oldObj){
+        newObj[key]=oldObj[key];
+      }
+      return newObj;
+    } 
+          //执行时数组里的下标创建三个不同地址引用着对象
+  var a1=[{uid:1,uname:'jinjie'},{uid:2,uname:'huihui'},{uid:3,uname:'hongmaying'}];
+  //     [        0:123         ,          1:256       ,         2:789            ];
+  //                |                        |                      |    
+  //         {uid:   uname:           {uid:   uname:          {uid:  uname:  
+  //           1    'jinjie'            2    'huihui'          3      'hongmaying'
+  //  因为new出来的是数组所以数组地址不同，数组里对象没有执行递归new出来所以地址相同
+  var a2=clone(a1);
+  //  a2=[ 0:123 , 1:256 , 2:789];    
+  console.log(a1==a2);//false
+  console.log(a1[1]==a2[1]);//不是原始类型的值复制的是地址所以为true
+          // (0:123==0:123)
+  </script>
+</body>
+</html>

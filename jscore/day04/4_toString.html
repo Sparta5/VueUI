@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        //向Student的父亲添加toString函数
+        Student.prototype.toString=function(){
+            return `{sname:${this.sname},sage:${this.sage}}`
+        };
+        var Lilei=new Student("li lie","12");
+        var arr=[1,2,3,4];//自带toString函数
+        var now=new Date();//自带toString函数
+        var hmm={
+            sname:"Han Meimei",
+            sage:15
+        }
+        //向hmm添加String添加函数
+        hmm.toString=function(){
+            return `{sname:${this.sname},sage:${this.sage}}`
+        }
+        console.log(Lilei.toString())
+        console.log(arr.toString())
+        console.log(now.toString())
+        console.log(hmm.toString())
+    </script>
+</body>
+</html>

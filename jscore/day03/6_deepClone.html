@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function deepClone(oldObj){
+  if(oldObj==null){
+    return null;
+  }
+  if(typeof oldObj!=="object"){
+    return oldObj;
+  }
+  var newObj=Array.isArray(oldObj)?[]:{};
+  for(var key in oldObj){
+    newObj[key]=deepClone(oldObj[key]);
+  }
+  return newObj;
+}
+var a1=10;
+var arr1=[1,2,3];
+var lilei1={
+  sname:"Li Lei",
+  sage:11,
+  address:{
+    city:"北京",
+    street:"万寿路"
+  }
+}
+var a2=deepClone(a1);
+console.log(a2);
+var arr2=deepClone(arr1);
+console.log(arr2);
+console.log(arr1==arr2);//false
+var lilei2=deepClone(lilei1);
+console.log(lilei2);
+console.log(lilei1==lilei2);//false
+console.log(lilei1.address==lilei2.address)//false
+</script>
+</body>
+</html>

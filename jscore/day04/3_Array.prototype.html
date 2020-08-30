@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.sum=function(){
+            var result=0;
+            for(var i=0;i<this.length;i++){
+                result+=this[i];
+            }
+            return result;
+        }
+        console.log(Array.prototype);
+        var arr1=[1,2,85,69];
+        var arr2=[546,465,4564,9654564,65465];
+        console.log(arr1.sum())
+        console.log(arr2.sum())
+    </script>
+</body>
+</html>
