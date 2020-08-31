@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage
+    }
+    var lilei=new Student("Li Lei",16)
+    var hmm=new Student("Han Meimei",12)
+    console.log(lilei.bal,lilei.car)//undefined
+    console.log(hmm.bal,hmm.car)//undefined
+    var father={
+      bal:1000000000,
+      car:"infiniti"
+    }
+    Object.setPrototypeOf(lilei,father)
+    //     设置原型对象的 子对象 父对象
+    //（换爹：构造函数里的原型对象为空,
+    //        子对象更换其他对象为原型对象）
+    console.log(lilei)
+    console.log(lilei.bal,lilei.car)
+    console.log(hmm.bal,hmm.car)
+  </script>
+</body>
+</html>

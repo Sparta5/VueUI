@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage
+    }
+    var father={
+      bla:10000,
+      car:"infiniti"
+    }
+    Student.prototype=father;
+// 构造函数的原型对象 为father(换老公:替换构造函数原型对象-重新赋值)子对象都能用  
+    var lilei=new Student("Li lei",15)
+    var hmm=new Student("han meimei",12)
+    console.log(lilei.bla,lilei.car)
+    console.log(hmm.bla,hmm.car)
+  </script>
+</body>
+</html>

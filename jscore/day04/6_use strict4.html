@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+   function fib(n){
+    //  console.log(arguments)
+     var f=arguments.callee;//var f=arguments.caller;
+    //callee是arguments下指正在被执行的Function对象
+     if(n<3){
+       return 1
+     }else{
+       //严格模式下不能用递归访问，递归占计算量大、效率低
+       return f(n-1)+f(n-2)
+     }
+   }
+   console.log(fib(10))
+  </script>
+</body>
+</html>

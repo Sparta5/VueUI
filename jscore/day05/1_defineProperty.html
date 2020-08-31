@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+    var eric={
+      eid:1001,
+      ename:"埃里克",
+      salary:12000
+    };
+      
+      Object.defineProperty(eric,"ename",{
+        writable:false,
+        configurable:false
+      });
+      Object.defineProperty(eric,"eid",{
+        configurable:false
+      })
+      Object.defineProperty(eric,"salary",{
+        enumerable:false,
+        configurable:false
+      })
+      var eidObj=
+      Object.getOwnPropertyDescriptor(eric,"ename");
+      console.log(eidObj);
+      // eric.ename="艾克"
+    //Cannot assign   to  read only property 'eid'
+    // 不能 分配(赋值) 给    只读      属性    eid
+      // delete eric.ename
+    //尝试修改属性
+      // Object.defineProperty(eric,"ename",{
+      //   writable:true,//控制当前属性是否可以修改
+      //   enumerable:false,//控制for in遍历到这个属性 只防for in不防点
+      //   configurable:true//1.控制是否可以修改前两个开关
+      //                    //2.控制是否可以修改前两个开关
+      // })
+      //返回Cannot redefine property: ename
+        //    不能  重复定义   属性    ename
+    for(var key in eric){
+      console.log(`属性名:${key}属性值:${eric[key]}`)
+    }
+      console.log(eric.salary)
+  </script>
+</body>
+</html>

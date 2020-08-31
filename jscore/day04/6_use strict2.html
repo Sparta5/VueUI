@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+    var eirc={
+      eid:1001,
+      ename:"埃里克"
+    }
+    //      定义  属性        eid要加双引号不然为undefined
+    Object.defineProperty(eirc,"eid",{
+    //是否可写（在严格模式下--设置为只读）
+      writable:false
+    });
+    //Cannot assign to read only property 'eid'(启用严格模式后)
+    // 不能    赋值 给    只读      属性   'eid'
+    eirc.eid=10086;
+    console.log(eirc);
+  </script>
+</body>
+</html>
