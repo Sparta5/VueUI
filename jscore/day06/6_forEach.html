@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr1=[1,2,3,4];
+    arr1.forEach(
+      function(elem,i,arr){
+        console.log(`elem=${elem},i=${i},arr=${arr}`);
+        arr[i]*=2;
+      }
+    )
+    console.log(arr1)
+    var arr2=[{x:1} , {x:2} , {x:3}]
+        //   [0x125 , 0x458  , 0x691]
+    arr2.forEach(
+      //   elem接受到的是地址
+      //    i 接收到的是下标
+      function(elem,i,arr){ //字符串对象原型↓
+        // elem.x*=2 两种都可以
+           arr[i].x*=2
+      }
+    )
+    console.log(arr2)
+  </script>
+</body>
+</html>

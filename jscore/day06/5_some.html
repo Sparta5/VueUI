@@ -9,7 +9,7 @@
    <script>
      var arr1=[1,3,4,1,6];
      var arr2=[3,7,11,13,17];
-     var old=arr1.some(
+     var old=arr1.some(//遍历是否有一个满足条件
        function (elem,i,arr) {
           console.log(`elem=${elem},下标${i},arr=${arr}`)
           return elem%2==0

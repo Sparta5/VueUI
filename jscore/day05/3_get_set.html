@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+      var eric={
+          ename:"埃里克",
+          sage:15
+      }
+      Object.defineProperties(eric,{
+          _sage:{//隐姓埋名 存值
+            value:eric.sage,
+            writable:true,
+            enumerable:false,
+            configurable:false
+          },
+          sage:{//选择要修改的变量名,没有的话会新建一个,get，set不能改名|请一对儿保镖
+            get:function(){//保镖一:读取隐藏的_sage的属性值给外面
+               console.log(`调用了一次sage中的get()`)
+               return this._sage;
+              },
+            set:function(value){//接受值判断符合条件给隐藏_sage属性中
+                if(value>12 && value<25){
+                   console.log(`调用了一次sage中的set(value=${value})符合要求，所以将${value}保存到属性中`);
+                 return this._sage=value;
+              }else{
+                      console.log(`value=${value}不符合要求报错`)
+                    throw error(`年龄超范围`)
+                  }
+              },
+              enumerable:true,//保镖要替隐藏的数据属性抛头露面
+              configurable:false//保镖不能被轻易删除
+          }
+      })
+      console.log(eric);
+
+      console.log(eric.sage);
+
+      eric.sage=16;
+      console.log(eric.sage);
+      
+      eric.sage=-2;
+  </script>
+</body>
+</html>
