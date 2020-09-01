@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+    var pool={
+      host:"127.0.0.1",
+      port:3306,
+      db:"xz"
+    };
+  //        冻结 不执行删除、修改、添加
+    Object.freeze(pool);
+    // pool.host="locahost"//报错
+    //Cannot assign to read only property 'host'
+    // 不能   赋值  给    只读     属性    'host'
+    //delete pool.host
+    //Cannot delete property 'host'
+    // 不能   删除    属性    'host'
+
+    //尝试添加 _host
+    pool._host="localhost";//报错
+    //Cannot add property _host, object is not extensible
+    // 不能  添加  属性   _host,   对象  是 不   可扩展的
+  </script>
+</body>
+</html>

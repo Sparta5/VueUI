@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     var arr1=[4,2,1,6,5];
+     var arr2=[4,2,6,8,10];
+     var result1=arr1.every(
+       function (elem,i,arr){
+         console.log(`当前遍历的元素为${elem},下标${i},arr=${arr},返回判断结果${elem%2==0}`);
+         return elem%2==0
+       }
+     )
+     console.log(result1)
+     var result2=arr2.every(
+       function(elem,i,arr){
+        console.log(`当前遍历的元素为${elem},下标${i},arr=${arr},返回判断结果${elem%2==0}`);
+         return elem%2==0
+       }
+     )
+     console.log(result2)
+   </script>
+</body>
+</html>

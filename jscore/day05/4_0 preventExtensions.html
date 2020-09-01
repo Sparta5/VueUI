@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict"
+    var eric={
+      eid:1001,
+      name:"埃里克"
+    }       //  阻止   扩展   只能阻止添加对象
+    // Object.preventExtensions(eric);
+    //     密封  防添加和删除 可以修改
+    Object.seal(eric)
+    // Object.defineProperties(eric,{
+    //   eid:{
+    //     writable:false,
+    //   }
+    // })
+    eric.name="艾克"
+    // eric.sage=16
+    // delete eric.name
+    console.log(eric)
+  </script>
+</body>
+</html>

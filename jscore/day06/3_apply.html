@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function count(base,bonus,bouns2){
+      console.log(`${this.ename}的总工资是${base+bonus+bouns2}`)
+    }
+    var lilei={ename:"Li Lei"};
+    var hmm={ename:"Han Meimei"};
+     arr=[1000,1000,1000]
+  //多个形参变量，但多个实参却在数组给的，出现了不一致
+     count.apply(lilei,arr)
+     count.apply(hmm,arr)
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var father={
+      bal:100000000,
+      car:"infiniti"
+    }
+    //创建hmm 同时继承 father
+    //可以向hmm里添加属性（三个开关和value必须写 ）
+    var hmm=Object.create(father,{
+      phone:{
+        value:"iphone11",
+        writable:true,
+        enumerable:true,
+        configurable:false
+      },
+      bao:{
+        value:"Lv",
+        writable:true,
+        enumerable:true,
+        configurable:false
+      }
+    })
+    console.log(father);
+    console.log(hmm);
+    console.log(hmm.car,hmm.bal)
+  </script>
+</body>
+</html>

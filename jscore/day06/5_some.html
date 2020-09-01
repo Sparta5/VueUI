@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     var arr1=[1,3,4,1,6];
+     var arr2=[3,7,11,13,17];
+     var old=arr1.some(
+       function (elem,i,arr) {
+          console.log(`elem=${elem},下标${i},arr=${arr}`)
+          return elem%2==0
+       }
+     )
+     var old2=arr2.some(
+       function (elem,i,arr) {
+          console.log(`elem=${elem},下标${i},arr=${arr}`)
+          return elem%2==0
+       }
+     )
+     console.log(old)
+     console.log(old2)
+   </script>
+</body>
+</html>

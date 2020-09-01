@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function count(base,bonus,bouns2){
+      console.log(`${this.ename}的总工资是${base+bonus+bouns2}`)
+    }
+    var lilei={ename:"Li Lei"};
+    var hmm={ename:"Han Meimei"};
+     arr=[1000,1000,1001]
+  //多个形参变量，但多个实参却在数组给的，出现了不一致
+  count.apply(hmm,arr)
+  //创建了一个计算器进攻李磊使用
+  //永久替换副本第一个形参变量base->1000
+     var count2=count.bind(lilei,1000)
+     //               捆绑 绑定
+  //有一个固定的形参变量1000，以后直接传入后面两个就可以了
+     count2(1000,1500)
+     count2(1300,1500)
+     count2(1050,9100)
+     console.log(count2)
+     console.log(count==count2)//false
+                    //         地址不同所以不是同一个函数
+  </script>
+</body>
+</html>
