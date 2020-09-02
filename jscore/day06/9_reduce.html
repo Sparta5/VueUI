@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str="helloworld";
+    var arr=str.split("");//打撒分割 成数组
+    var result=arr.reduce(
+      function(box,elem,i,arr){
+           // box：结果半成品对象{} 
+           // elem:当前字母
+        box[elem]===undefined?box[elem]=1:box[elem]++;
+        // if(box[elem]===undefined){
+        //   box[elem]=1
+        // }else{
+        //   box[elem]++;
+        // }
+        return box;
+      },
+      {}//会先创建捐款箱(起始值)
+    )
+    console.log(result);
+  </script>
+</body>
+</html>

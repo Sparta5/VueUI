@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr=[1,3,6,7,8]
+    var arr2=arr.filter(
+      function(elem,i,arr){
+        return elem%2==0
+      }
+    )
+    console.log(arr)//原素组没有发生变化
+    console.log(arr2)//添加的新数组
+    console.log(arr==arr2)//flase 说明地址不同
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>//用简写
+    //   var signin=function(){
+    //     console.log("登录...")
+    //   }
+    //   var signup=function(){
+    //     console.log("注册...")
+    //   }
+    //   var signout=function(){
+    //     console.log("注销...")
+    //   }
+    // /*ES6中简写:*/
+    // var user={
+    //   signin,//signin:signin,
+    //   signup,
+    //   signout
+    // }
+    // //抛出整个对象模块
+    // //module.exports=user;
+
+    //其他js中
+    //先引入对象模块
+    //var user=require(".../user.js");
+    //以对象形式使用
+    user.signin();
+    //也可以引入对象模块时，直接解构出需要的成员单独使用
+    // var {signin}=require(".../user.js")
+    //singnin();
+  </script>
+</body>
+</html>
