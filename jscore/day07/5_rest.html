@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+          // 三点后的arr用于储存接收到的所有形参,拥有aguments所有优点
+          //es6中箭头函数截止使用aguments(报错:arguments is not defined)
+    var add=(...arr)=>arr.reduce((box,elem)=>box+elem,0);
+    //  var add=function(...arr){
+    //    return arr.reduce(
+    //      function(box,elem){
+    //         return box+=elem; 
+    //      }
+    //    )
+    //  }
+   console.log(add(1,2,3))
+
+    //定义一个计算总公司的函数
+    function jisuan(ename,...arr){
+      var sum=arr.reduce((box,elem)=>box+elem,0);
+      console.log(`${ename}的总工资是${sum}`)
+    }
+    jisuan("Li Lei",1000,2000,2000)
+   </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     var arrw=[2,7,8,3];
+     console.log(Math.max(...arrw))
+     console.log(Math.min(...arrw))
+
+     arri=[1,2,3,5,4]
+     arri1=[6,7,8,9]
+    //  var arri2=[].concat(arri,arri2);
+     var arri2=[...arri,...arri1];
+     console.log(arri2)
+      //复制一个数组
+      arr=[2,3,4,5,6];
+      arr2=arr.slice();
+      arr3=[...arr];
+      console.log(arr2,arr2==arr,arr3,arr3==arr)//false
+      //复制对象
+      var obj1={x:1,y:2};
+      var obj2={...obj1}
+      console.log(obj2)
+
+    var obj1={x:1,y:2};
+    var obj2={m:3,n:4};
+    //              //先打散再放入新对象
+    // var obj3=Object.assign({},obj1,obj2)
+    var obj3={i:10, ...obj1, j:100, ...obj2};
+    console.log(obj3);
+   </script>
+</body>
+</html>

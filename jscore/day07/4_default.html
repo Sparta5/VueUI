@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function intr(str){//短路逻辑
+      // var str=str||"主人很懒，什么都没留下";//或 遇真则真 
+      str===undefined&&(str="主人很懒，什么都没留下");//与 遇假则假
+      console.log(`留言板:${str}`)
+    }
+    intr("辉辉");
+    intr();
+    function order(zhushi="汉堡",xiaochi="薯条",yingliao="可乐"){
+      console.log(`
+        您本次点餐包括：
+          主食：${zhushi},
+          小吃：${xiaochi},
+          饮料：${yingliao}
+      `)
+    }
+    order();
+    order("馒头","土豆","豆奶");
+    order("null","土豆");
+    order("馒头");
+  </script>
+</body>
+</html>
