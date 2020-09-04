@@ -7,7 +7,37 @@
 </head>
 <body>
   <script>
-    
+    function order({
+      //配对：形参变量
+      // zhushi:zhushi,
+      // xiaochi:xiaochi,
+      // yinliao:yingliao
+      zhushi="巨无霸",
+      xiaochi="薯条",
+      yinliao="可乐"
+    }){
+      //短路逻辑
+      // zhushi===undefined&&(zhushi="香辣鸡腿堡");
+      // xiaochi===undefined&&(xiaochi="薯条");
+      // yingliao===undefined&&(yinliao="可乐")
+      console.log(`
+        您本次的套餐是：
+            主食:${zhushi},
+            主食:${xiaochi},
+            主食:${yinliao}
+      `)
+    }
+
+    order({
+      zhushi:"米饭",
+      xiaochi:"花生",
+      yinliao:"龙夫山泉"
+    });
+     
+    order({
+      xiaochi:"玉米"
+      //zhushi、yinliao没有提功则采用默认值
+    });
   </script>
 </body>
 </html>

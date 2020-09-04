@@ -7,11 +7,12 @@
 </head>
 <body>
   <script>
-    "use strict"//开启严格模式会报错
+    // "use strict"//开启严格模式会报错
    function fib(n){
     //  console.log(arguments)
      var f=arguments.callee;//var f=arguments.caller;
-    //callee是arguments下指正在被执行的Function对象
+    //callee是arguments下指正在被执行的当前Function对象
+    console.log(f)
      if(n<3){
        return 1
      }else{
