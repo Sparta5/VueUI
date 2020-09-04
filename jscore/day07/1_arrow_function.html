@@ -15,6 +15,7 @@
         this.friends.forEach(
           // function(elem){//作用域,实体墙
             (elem)=>{//方式2:改为箭头函数内外this相通,翻墙
+                    //构造函数中的this不能用，因为会指向window
             console.log(`${this.sname}认识${elem}`)
           }//.bind(this) //方式1:往里面小函数添加父函数的this，
             //小函数this就可以指向大函数this(lilei))了

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function liang(next){
+      console.log(`liang起跑...`)
+      setTimeout(function(){
+        console.log(`liang到达终点！`);
+        next();
+      },3600)
+    }
+    function dong(next){
+      console.log(`dong起跑...`)
+      setTimeout(function(){
+        console.log(`dong到达终点！`);
+        next();
+      },3000)
+    }
+    function hui(){
+      console.log(`hui起跑...`)
+      setTimeout(function(){
+        console.log(`hui到达终点！`);
+      },2500)
+    }
+  // liang(
+  //   function(){
+  //     dong(
+  //       function(){
+  //         hui()
+  //       }
+  //     );
+  //   }
+  // );
+  liang(()=>dong(()=>hui()));
+  </script>
+</body>
+</html>

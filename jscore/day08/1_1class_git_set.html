@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict";
+     function Emp(eid,ename,eage){
+       this.eid=eid;
+       this.ename=ename;
+       this.eage=eage;
+       Object.defineProperties(this,{
+        eid:{writable:false},
+        _eage:{
+          value:eage,
+          writable:true,
+          configurable:false
+        },
+        eage:{//为了不浪费内存放在外面，
+          get(){//添加共有的保镖eage到当前prototype里，为共有属性(1_2)
+            return this._eage;
+          },
+          set(value){
+            if(value>=18&&value<=65){
+              this._eage=value;
+            }else{
+              throw Error("年龄必须介于18~25")
+            }
+          }
+        }
+       })
+       //密封将来要出生的子对象
+       Object.seal(this);
+     }
+
+     var smi=new Emp("1","smith","18");
+    //  delete smi.eid //报错
+    // smi.eage=129;
+    // smi.eid=-2;
+     console.log(smi)
+  </script>
+</body>
+</html>

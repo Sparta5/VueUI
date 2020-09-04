@@ -26,8 +26,10 @@
         //如果直接添加第二次调用所有创建的对象会恢复初始值,相当于所有的都重复创建
         //在calss中不推荐共有属性，方法除外
           //Student.prototype.className="初一(2)班";
-          //解决先做判断，
-          if(Student.)
+          //解决:先做判断,当前类型的原型对象中不包含指定属性
+          if(Student.prototype.className===undefined){
+            Student.prototype.className="初一(2)班"
+          }
          }
          //2. ES6原型对象: 规定所有学生都会做自我介绍!( )
          intr(){
@@ -36,7 +38,7 @@
        }
         //创建两个学生: 
         var lilei=new Student("Li Lei",11);
-       //往自己添加自有属性__proto__,而不是共有属性prototype
+       //往自己添加的是自有属性__proto__,而不是共有属性prototype
         var hmm=new Student("Han Meimei",12);
         console.log(lilei);
         console.log(hmm);

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function liang(){
+             // 格子间            赠门
+      return new Promise(function(door){
+        var bang="接力棒"
+      console.log(`liang拿着${bang}起跑...`);
+        setTimeout(function(){//异步
+        console.log(`liang拿着${bang}到达终点！`);
+        door(bang);
+      },2600)
+     })
+    }
+    function dong(bang2){
+     return new Promise(function(door){
+      console.log(`dong拿着${bang2}起跑...`)
+        setTimeout(function(){
+        console.log(`dong到达终点！`);
+        door(bang2);
+        },2000)
+       }
+     )
+    }
+    function hui(bang2){
+      console.log(`hui拿着${bang2}起跑...`);
+      setTimeout(function(){//异步：在主程序之外
+        console.log(`hui${bang2}到达终点！`);
+      },2500)
+    }
+  liang().then(dong).then(hui);
+  // liang(
+  //   function(){
+  //     dong(
+  //       function(){
+  //         hui()
+  //       }
+  //     );
+  //   }
+  // );
+  </script>
+</body>
+</html>
