@@ -10,40 +10,38 @@
     function liang(){
              // 格子间            赠门
       return new Promise(function(door){
-        var bang="接力棒"
+        var bang="接力棒";
+        var qkl="巧克力";
       console.log(`liang拿着${bang}起跑...`);
         setTimeout(function(){//异步
         console.log(`liang拿着${bang}到达终点！`);
-        door(bang);
+        // door([bang,qkl]);
+        //  属性名:属性值 属性名:属性值
+        // door({bang1:bang,qkl1:qkl});
+         door({bang,qkl});
       },2600)
      })
     }
-    function dong(bang2){
+    //             属性名:形参
+    //              配对  接值
+    // function dong({bang1:bangp,qkl1:qklp}){
+    function dong({bang,qkl}){
      return new Promise(function(door){
-      console.log(`dong拿着${bang2}起跑...`)
+      console.log(`dong吃了${qkl}起跑...`)
         setTimeout(function(){
-        console.log(`dong到达终点！`);
-        door(bang2);
+        console.log(`dong拿着${bang}到达终点！`);
+        door({bang,qkl});
         },2000)
        }
      )
     }
-    function hui(bang2){
-      console.log(`hui拿着${bang2}起跑...`);
+    function hui({bang,qkl}){
+      console.log(`hui吃了${qkl}起跑...`);
       setTimeout(function(){//异步：在主程序之外
-        console.log(`hui${bang2}到达终点！`);
-      },2500)
+        console.log(`hui到达${bang}到达终点！`);
+      },2000)
     }
   liang().then(dong).then(hui);
-  // liang(
-  //   function(){
-  //     dong(
-  //       function(){
-  //         hui()
-  //       }
-  //     );
-  //   }
-  // );
   </script>
 </body>
 </html>
