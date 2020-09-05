@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>DOM Tree</title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<span id="s1">Hello</span>
+	<h1>标题一</h1>
+	<form>用户名：</form>
+	<script>
+	//输出<html>元素         文档   元素
+	  console.log(document)
+    console.log(document.documentElement);
+		console.log(document.body);
+		console.log(document.head);
+		//想输出网页中唯一的一个<form>元素
+		console.log(document.forms[0]);
+		var body=document.body;
+		console.log(body);
+		//想获得body下所有直接子元素: 4个
+		 var children=body.children;
+		 console.log(children);
+		 //想获得body下第一个直接子元素：
+		 var span=body.firstElementChild;
+		 console.log(span)
+		//想获得body下最后一个直接子元素:
+			var form=body.lastElementChild;
+			// var script=body.lastChild
+			console.log(form)
+		//想获得span的下一个兄弟： 
+			var h1=span.nextElementSibling;
+			// var h1=span.nextSibling;
+			console.log(h1)
+		//想获得script的前一个兄弟:
+		 var form=script.previousElementSibling;
+		console.log(form)
+  </script>
+</body>
+</html>

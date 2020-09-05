@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>遍历节点树</title>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+		<span>Hello World !</span>
+		<ul id="nav">
+			<li class="item parent active">电影</li>
+			<li class="item parent">综艺
+				<ul>
+					<li class="item child">跑男</li>
+					<li class="item child">爸爸</li>
+					<li class="item child">极限</li>
+				</ul>
+			</li>
+			<li class="item child">剧集</li>
+		</ul>	
+		<form>
+			用户名: <input name="uname"/><br/>
+			性别: <label><input type="radio" name="sex" value="1">男</label>
+				<label><input type="radio" name="sex" value="0">女</label>
+		</form>
+    <script>
+			//查找id为nav的元素
+			var nav=document.getElementById("nav")
+			console.log(nav)
+			//id为nav的ul下查找所有li元素
+			var li=nav.getElementsByTagName("li")
+			console.log(li)
+			//在body下查找span元素(2)
+			var span=document.body.getElementsByTagName("span")[0]
+			console.log(span)
+			var span=document.body.firstElementChild;
+			console.log(span)
+			//想在nav下查找class为item的元素
+			var item=nav.getElementsByClassName("item")
+			console.log(item)
+			//想在nav下查找class为child的元素
+			var child=nav.getElementsByClassName("child");
+			console.log(child)
+			child[0].innerHTML="❀"
+      //想在nav下查找class为active的元素
+			var child=nav.getElementsByClassName("active");
+			console.log(child[0])
+      //想找到页面中惟一的一个表单元素
+			var form=document.getElementsByTagName("form")
+			// var form=document.forms;
+			console.log(form[0])
+      //查找表单元素中name为sex的多个input元素
+			var inputs=document.getElementsByName("sex");
+			console.log(inputs)
+      //查找表单元素中name为uname的一个文本框: 
+			var txt=document.getElementsByName("uname");
+			console.log(txt)
+		</script>
+	</body>
+</html>
