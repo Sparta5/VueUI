@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="p1"><a href="javascript:;">&lt;&lt;新华社&gt;&gt;</a></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <script>
+    var p1=document.getElementById("p1");
+    console.log(p1.innerHTML);
+    console.log(p1.textContent);
+    var p2=document.getElementById("p2");
+    var p3=document.getElementById("p3");
+    p2.innerHTML=`<a href="javascript:;">&lt;&lt;新华社&gt;&gt;</a>`;
+    p3.textContent=`<a href="javascript:;">&lt;&lt;新华社&gt;&gt;</a>`
+  </script>
+</body>
+</html>

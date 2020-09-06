@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  请输入关键词：<input id="txtkw">
+  <script>
+    //1.查找触发元素的事件
+    var txtkw=document.getElementById("txtkw");
+    //2.绑定事件处理函数
+    txtkw.onclick=function(){
+      //获取当前文本框的内容，去掉空字符
+      var kw=this.value.trim();
+      if(txtkw!==""){
+        console.log(`查找${kw}相关的信息`)
+      }
+    }
+  </script>
+</body>
+</html>
