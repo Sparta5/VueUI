@@ -22,7 +22,7 @@ td span{color:red}
 /*专门定义提示信息div在验证通过时的样子*/
 /*第二个需求中，当文本框失去焦点，验证文本框的内容，如果通过，就给文本框旁边的div设置class为vali_success*/
 .vali_success{
-	background-image:url("images/ok.png");
+	background-image:url("../images/ok.png");
 	padding-left:20px;
 	width:0px;height:20px;
 	overflow:hidden;
@@ -30,7 +30,7 @@ td span{color:red}
 /*专门定义提示信息div在验证失败时的样子*/
 /*第二个需求中，当文本框失去焦点，验证文本框的内容，如果不通过，就给文本框旁边的div设置class为vali_fail*/
 .vali_fail{
-	background-image:url("images/err.png");
+	background-image:url("../images/err.png");
 	border:1px solid red;
 	background-color:#ddd;
 	color:Red;
