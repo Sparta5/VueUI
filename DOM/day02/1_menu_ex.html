@@ -1,0 +1,99 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>1. 实现伸缩二级菜单</title>
+<meta charset="utf-8" />
+<style>
+	li{
+	list-style:none;
+}
+li span{
+	padding-left: 20px;
+	cursor: pointer;
+  background: url("./images/add.png") no-repeat center left;
+}
+li ul{
+	/* display: none;  */
+	height: 0;
+	overflow: hidden;
+	transition: all .5s linear;
+}
+.open{ background: url("./images/minus.png") no-repeat center left; }
+/* .open+ul{  */
+	/* display: block; */
+	/* height: 108px; */
+/* } */
+li:nth-child(1)>span.open+ul{
+	height: 66px;
+}
+li:nth-child(2)>span.open+ul{
+	height: 88px;
+}
+li:nth-child(3)>span.open+ul{
+	height: 102px;
+}
+</style>
+</head>
+<body>
+	<ul class="tree">
+		<li>
+			<span class="open">考勤管理</span>
+			<ul>
+				<li>日常考勤</li>
+				<li>请假申请</li>
+				<li>加班/出差</li>
+			</ul>
+		</li>
+		<li><span>信息中心</span>
+			<ul>
+				<li>通知公告</li>
+				<li>公司新闻</li>
+				<li>规章制度</li>
+				<li>规章制度</li>
+			</ul>
+		</li>
+		<li><span>协同办公</span>
+			<ul>
+				<li>公文流转</li>
+				<li>文件中心</li>
+				<li>内部邮件</li>
+				<li>即时通信</li>
+				<li>短信提醒</li>
+			</ul>
+		</li>
+	</ul>
+  <script>
+	 //DOM4步
+	 //1.查找触发事件的元素
+	 var spans=document.querySelectorAll("li>span");
+	 //2.绑定事件
+	 //为每个li>span绑定事件函数
+	 for(var span of spans){
+		 span.onclick=function(){
+			 //3.查找触发事件的元素
+			thisSpan=this;
+			//查找另一个class为open的span
+			otherSpan=document.querySelector("span.open");
+			//第一次不能找到的其他otherSpan，就移除"open"
+			//如果一开始找到otherSpan(open)就会与thisSpan(open)是同一个会冲突
+			if(otherSpan!=null){
+				otherSpan.className=""
+			}
+			//4.修改元素
+			//如果(class为open)就移除"open",否则(class没open)就添加open
+			if(thisSpan.className=="open"){
+				  thisSpan.className="";
+			}else{
+					thisSpan.className="open"
+			}
+			console.log(thisSpan)
+			console.log(otherSpan)
+			//打开当前的(thisSpan)需要关闭另一个span，查找要修改的元素
+			if(otherSpan!=null){
+				otherSpan.className="";
+			}
+		 }
+	 }
+	</script>
+</body>
+</html>

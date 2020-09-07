@@ -24,8 +24,8 @@
 			if(d1.style.display!="none"){
 				d1.style.display="none";
 				this.innerHTML="&gt;&gt"
-			}else{
-				d1.style.display="block";
+			}else{//元素没有none会默认显示
+				d1.style.display="";
 				this.innerHTML="&lt;&lt"
 			}
 		}

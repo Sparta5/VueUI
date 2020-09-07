@@ -40,6 +40,29 @@
 			</tr>				
 	    </table>
 	</form>
-	<script src="js/5.js"></script>
+	<script>
+		//第一个需求：当获取焦点时，让文本框旁边的div显示出来
+		//DOM4步
+		//1.查找触发事件元素
+		//找到name="username|pwd"两个输入框(多个input所以用nameByName查找-类数组要加下标)
+		var txtName=document.getElementsByName("username")[0];
+		var txtPwd=document.getElementsByName("pwd")[0];
+		//2.绑定事件(为两个输入框绑定失去焦点事件)
+		txtName.onfocus=txtPwd.onfocus=function(){
+			//3.查找要修改的元素(class随时都在变化，所以用关系查找)
+			//当前事件爹的下一个兄弟孩儿们的第一个
+		  var div=this.parentElement.nextElementSibling.children[0];
+			console.log(div);
+			//4.修改元素(清除div隐身斗篷)
+			div.className="";
+		}
+		//第二个需求:失去焦点时判断(通过修改正确的div样式，不符合修改不符合的样式)
+		//1.查找触发事件的元素(已完成)
+		//2.绑定失去焦点处理函数
+		txtName.onblur=function(){
+			var reg=/^\w{1,10}$/;
+			
+		}
+	</script>
  </body>
 </html>

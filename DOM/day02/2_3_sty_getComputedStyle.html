@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1{
+      background-color:red ;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="h1" style="color: yellow;">Welcome</h1>
+  <p>Welcome to my web site</p>
+  <script>
+    // var h1=document.getElementById("h1");
+    //获得字体颜色，背景颜色，字体大小
+    //不完整 //css在script中(-)都要去-边驼峰，clss在script为clssName
+    console.log(h1.style.color);
+    console.log(h1.style.backgroundColor);
+    console.log(h1.style.fontSize);
+    //获得完整样式:
+    var style=getComputedStyle(h1);
+    console.log(style);
+    console.log(style.color);
+    console.log(style.backgroundColor);
+    console.log(style.fontSize);
+    //修改计算后的样式中的字体大小
+    // style.fontSize="64px";//报错
+    h1.style.fontSize="64px"//可以修改
+    console.log(style.fontSize);
+    //结论:修改-用内联样式 获得-用getComputedStyle函数
+  </script>
+</body>
+</html>

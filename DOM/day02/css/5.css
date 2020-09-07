@@ -1,40 +1,38 @@
 table{width:700px}
-/*��Ԫ���µĵ�1������n�������һ��td��Ԫ��*/
 td:first-child{width:60px}
-/*IE��֧��nth-child*/
 td:nth-child(2){width:200px}
 /*IE*/
 td:first-child+td{width:200px}
-/*IE��֧��--���Կ��ܿ���������
-td:last-child{width:340px}*/
 td span{color:red}
-
-.vali_info{/* ҳ���ʼ����֤��Ϣ����ʾ */
+/*隐身斗篷！谁穿上，谁就隐藏*/
+.vali_info{ /*在页面刚加载时，让每个文档框旁边的div提示穿上，暂时隐藏文本框右侧的提示信息*/
 	display:none;
 }
-.txt_focus{/*���ı����ý���ʱ����*/
+/*第一个需求时，当文本框失去焦点时，让文本框旁边的div显示出来！也就是清除div的class。*/
+
+.txt_focus{
 	border-top:2px solid black;
 	border-left:2px solid black;
-}/*���ı���ʧȥ����ʱ����*/
-
+}
 .vali_success,.vali_fail{
 	background-repeat:no-repeat;
-  background-position:left center;
+	background-position:left center;
 	display:block;
 }
-/* ��֤��Ϣ����֤ͨ��ʱ����ʽ */
+/*专门定义提示信息div在验证通过时的样子*/
+/*第二个需求中，当文本框失去焦点，验证文本框的内容，如果通过，就给文本框旁边的div设置class为vali_success*/
 .vali_success{
-    background-image:url("../images/ok.png");
+	background-image:url("images/ok.png");
 	padding-left:20px;
 	width:0px;height:20px;
 	overflow:hidden;
 }
-/* ��֤��Ϣ����֤ʧ��ʱ����ʽ */
+/*专门定义提示信息div在验证失败时的样子*/
+/*第二个需求中，当文本框失去焦点，验证文本框的内容，如果不通过，就给文本框旁边的div设置class为vali_fail*/
 .vali_fail{
-    background-image:url("../images/err.png");
-    border:1px solid red;
-    background-color:#ddd;
-    color:Red;
-    padding-left:30px;
+	background-image:url("images/err.png");
+	border:1px solid red;
+	background-color:#ddd;
+	color:Red;
+	padding-left:30px;
 }
-
