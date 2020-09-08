@@ -49,14 +49,17 @@
 
 //1. 查找触发事件的元素
 //用name属性分别找到两个文本框
-var txtName=
-	document.getElementsByName(
-		"username"
-	)[0];//即使找到的是一个元素，也是套在一个集合中返回的。只有用[0]才能掏出抱在集合内的元素对象
-var txtPwd=
-	document.getElementsByName(
-		"pwd"
-	)[0];
+// var txtName=
+// 	document.getElementsByName(
+// 		"username"
+// 	)[0];//即使找到的是一个元素，也是套在一个集合中返回的。只有用[0]才能掏出抱在集合内的元素对象
+		var form=document.forms[0];
+		var txtName=form.username;
+// var txtPwd=
+// 	document.getElementsByName(
+// 		"pwd"
+// 	)[0];
+		var txtPwd=form.pwd;
 //2. 绑定事件处理函数
 //先绑定获得焦点事件
 txtName.onfocus=

@@ -76,17 +76,39 @@
 				function validate(txt,reg){
 					var div=txt.parentElement.nextElementSibling.children[0];
 					var result=reg.test(txt.value.trim());
-			result?div.className="vali_success":div.className="vali_fail";
+					if(result){
+						div.className="vali_success";
+						return true;
+					}else{
+						div.className="vali_fail";
+						return false;
+					}
+			// result?div.className="vali_success":div.className="vali_fail";
 				}
 		txtName.onblur=function(){
 			//3.查找要修改的元素
 			var reg=/^\w{1,10}$/;
-			validate(this,reg)
+			validate(this,reg)//this指txtName，把这个this传过去
 		}
 		txtPwd.onblur=function(){
 			var reg=/^\d{6}$/;
 			validate(this,reg)
 		}
+		//点击按钮提交验证文本框，只有全部通过了，才用ajax提交表单
+		// var btn=form.getElementsByTagName("input")[2];//旧DOM: 
+		var btn=form.elements[2];
+		console.log(btn)//所有input元素的第三个input
+	btn.onclick=function(){
+		//如果是true表示成功跳过，所以用取反(!)或(  ==false)
+		if(!validate(txtName,/^\w{1,10}$/)){
+			txtName.focus();
+		}else if(!validate(txtPwd,/^\d{6}$/)){
+			txtPwd.focus();
+		}else{
+			//两个都通过了，就用ajax提交表单内容
+			alert("验证通过,用ajax提交");
+		}
+	}
 	</script>
  </body>
 </html>

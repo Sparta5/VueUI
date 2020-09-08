@@ -70,7 +70,7 @@ li:nth-child(3)>span.open+ul{
 	 //为每个li>span绑定事件函数
 	 for(var span of spans){
 		 span.onclick=function(){
-			 //3.查找触发事件的元素
+			 //3.查找修改的元素
 			thisSpan=this;
 			//查找另一个class为open的span
 			otherSpan=document.querySelector("span.open");
