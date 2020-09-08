@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面5s倒计时</title>
+</head>
+<body>
+  <h1 id="h1">5s后自动关闭</h1>
+  <a id="a1" href="javascript:;">留在本页</a>
+<script>
+    //需求：页面5s倒计时,5s自动关闭当前窗口
+    // 点击留在页面，停止倒计时，不在关闭当前页面
+  //    setTimeout(() => {
+  //      window.close()
+  //    }, 5000);
+  function fun(){
+    //查找id为h1的元素，并获得他的内容,将内容-1后，再放回去
+    var h1=document.getElementById("h1");
+    var n=parseInt(h1.innerHTML);//自动去掉数字后面非数字内容
+    n--;
+     if(n>0){
+      h1.innerHTML=`${n}s后自动关闭`
+    }else{
+      /*window.*/close();//window可以不写，全局函数全局可以访问
+    }
+  }
+  var timer=setInterval(fun,1000)//每隔一秒减一
+  var a1=document.getElementById("a1");
+  a1.onclick=function(){
+    clearInterval(timer)
+  }
+  </script>
+</body>
+</html>
