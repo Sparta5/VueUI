@@ -14,7 +14,21 @@
 			</div>
 		</div>
     <script>
-			
+			var d1=document.getElementById("d1");
+			var d2=document.getElementById("d2");
+			var d3=document.getElementById("d3");
+			d1.onclick=function(e){
+				alert("d1疼")
+			}
+			d2.onclick=function(e){
+				alert("d2疼")
+				e.stopPropagation()
+				console.log(e)
+			}
+			d3.onclick=function(e){
+				e.stopPropagation()
+				alert("d3疼")
+			}
 		</script>
 	</body>
 </html>

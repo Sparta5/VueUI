@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>打开新链接方式总结</title>
+		<script>
+				//想获得当前窗口的大小
+				//当 窗口重新大小时，自动触发
+			window.onresize=function(){
+				console.log(`完整窗口大小：${window.outerWidth}${window.outerHeight}`)
+			}
+			/*打开新链接方式总结：
+1. 在当前窗口打开，可后退
+2. 在当前窗口打开，不可后退
+3. 在新窗口打开，可打开多个
+4. 在新窗口打开，只能打开一个
+*/
+			function open1(){												//window.name
+				// window.open("http://tmooc.cn","_self")//当前窗口打开会覆盖name名
+				// location.assign("http://tmooc.cn")
+				// location.href="http://tmooc.cn"
+				location="http://tmooc.cn"
+			}
+			function open2(){
+				location.replace("http://tmooc.cn")//不可后退push到最底部就没有可后退的了
+			}
+			function open3(){
+				window.open("http://tmooc.cn","_blank")//打开多个随机分配name名
+			}
+			function open4(){
+				window.open("http://tmooc.cn","tmooc")//只能打开一个自定义name名
+			}
+		</script>
+	</head>
+	<body>
+		<h3>1.在当前窗口打开，可后退</h3>
+		<a href="http://tmooc.cn" target="_self">欢迎访问tmooc</a>
+		<button onclick="open1()">欢迎访问tmooc</button>
+		<h3>2.在当前窗口打开，禁止后退</h3>
+		<button onclick="open2()">欢迎访问tmooc</button>
+		<h3>3.在当前窗口打开，可打开多个</h3>
+		<a href="http://tmooc.cn" target="_blank">欢迎访问tmooc</a>
+		<button onclick="open3()">欢迎访问tmooc</button>
+		<h4>4.在新窗口打开，只能同时打开一个</h4>
+		<a href="http://tmooc.cn" target="tmooc">欢迎访问tmooc</a>
+		<button onclick="open4()">欢迎访问tmooc</button>
+	</body>
+</html>

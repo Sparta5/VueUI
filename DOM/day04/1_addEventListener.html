@@ -11,5 +11,36 @@
     <button id="btnShoot">shoot</button><br>
     <button id="btnAward">获得跟踪导弹</button><br>
     <button id="btnBreak">失去跟踪导弹</button><br>
+    <script>
+       var btnShoot=document.getElementById("btnShoot");
+       var btnAward=document.getElementById("btnAward");
+       var btnBreak=document.getElementById("btnBreak");
+      //  btnShoot.onclick=function(){
+         btnShoot.addEventListener("click",
+         function(){
+            console.log(`发射普通子弹===>`)
+         })
+      //  }
+        var arr=[];//函数存的是地址引用着事件队列函数，移除地址就会释放函数
+         btnAward.onclick=function(){
+            // btnShoot.onclick=function(){
+            //添加事件队列获得跟踪导弹
+           //创建了一个new function、添加事件,并把变量(shoots)添加到arr数组中,
+           //再通过事件绑定(addEvantLIstener)添加一个不同地址被当前(shoot2)引用着
+           var shoot2=function(){
+              alert("发射跟踪导弹===>>>");
+           }
+           arr.push(shoot2);
+           btnShoot.addEventListener(
+              "click",shoot2
+           )
+         }
+         //移除事件队列
+         btnBreak.onclick=function(){
+            //取出数组里的shoot2，移除没有变量引用着地址就释放了
+            var fun=arr.pop();
+            btnShoot.removeEventListener("click",fun)
+         }
+    </script>
  </body>
 </html>
