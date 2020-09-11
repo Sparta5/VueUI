@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>表单元素过滤器</title>
+	<meta charset="utf-8"/>
+	<script src="js/jquery-1.11.3.js"></script>
+  <style>
+  </style>
+ </head>
+ <body>
+	<form>
+		用户名:<input disabled></br>
+		密码:<input type="password" disabled></br>
+		<input type="checkbox">我同意本站的使用条款<br>
+		<input type="submit" value="提交注册信息" disabled/>
+	</form>
+	<script>
+		//1.查找触发的元素
+		var $chb=$(":checkbox");
+		console.log($chb)
+		//2.绑定事件
+		$chb.click(function(){
+			//3.查找要修改的元素(:input(jq过滤选择器,选择所有表单元素)
+			//,input(css只能选择input))
+			var $others=$(":input:not(:checkbox)");
+			console.log($others)
+			var $this=$(this);
+			//prop() 方法应该用于检索属性值
+			if($this.prop("checked")==true){
+				console.log($this.prop("checked"))
+				// $others.disabled==false//不能用
+				//设置其他元素为禁用//VUE里是props
+				$others.prop("disabled",false)
+			}else{
+				// $others.disabled==true//不能用
+				$others.prop("disabled",true)
+			}
+		})
+	</script>
+ </body>
+</html>

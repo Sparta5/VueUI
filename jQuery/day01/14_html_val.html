@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form action="">
+		用户名:<input name="uname">
+					<span id="uname-msg"></span><br>
+		密码:<input type="password" name="upwd">
+					<span id="upwd-msg"></span><br>
+		<input type="submit" value="提交注册信息">
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+    //正确时，使用图片:"<img src='img/ok.png'>"
+    //姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+    //密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+    //阻止默认行为: e.preventDefault();
+		//表单提交: $(form).submit();
+		//1.查找触发事件的元素
+		var $txtName=$(":text");//input type="text"
+		//2.绑定触发事件的函数
+		console.log($txtName)
+		$txtName.blur(function(){
+			//3.查找要修改的元素
+			var $this=$(this);
+			//4.修改元素
+				//4.1获取文本框--检查--修改
+			var $span=$this.next();
+				console.log($span)
+				var value=$this.val().trim();
+				var reg=/^\w{3,6}$/;
+				var result=reg.test(value)
+				console.log(result)
+				if(result){
+					$span.html(`<img src='img/ok.png'>`)
+				}else{
+					$span.html(`<img src='img/err.png'>用户名必须在3~9之间`)
+				}
+		})
+	</script>
+ </body>
+</html>
