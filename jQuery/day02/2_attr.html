@@ -10,6 +10,29 @@
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 		//单击图片，切换下一张
+		//1.查找要修改的元素
+		var $Img=$("img");
+		//2.绑定事件
+		$Img.click(function(){
+			//3.查找要修改的元素
+			$this=$(this)
+			//.attr("alt")等同于.getAttribute("alt"),.prop等同于(属性值.alt)
+			var alt=parseInt($this.//attr("alt"));
+														 prop("alt"));
+			if(alt<4){
+				alt++;
+			}else{
+				alt=1;
+			}
+			//修改元素
+						//↓等同于setAttribute("alt","${alt}")
+						//↓等同于setAttribute("src","img/${alt}.jpg")
+			$this.//attr({//要同时修改两个元素
+						prop({
+				src:`img/${alt}.jpg`,
+				alt//alt:alt
+			})
+		})
 	</script>
  </body>
 </html>

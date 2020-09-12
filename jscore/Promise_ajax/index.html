@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="ajax.js"></script>
+</head>
+<body>
+<script>
+  var total=0;
+  ajax({
+    url:"http://localhost:5050/",
+    data:"type=a"
+  })//return new Promise
+  .then(result=>{
+    total+=result.count;
+    return ajax({//return new Promise
+      url:"http://localhost:5050/",
+      data:"type=b"
+    });//如果ajax有返回值new Promise，可用return抛出到then外，接下一个then
+  })//return new Promise
+  .then(result=>{
+    total+=result.count;
+    return ajax({//return new Promise
+      url:"http://localhost:5050/",
+      data:"type=c"
+    });
+  })//return new Promise
+  .then(result=>{
+    total+=result.count;
+    console.log(total);
+  })
+</script>
+</body>
+</html>

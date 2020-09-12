@@ -24,7 +24,13 @@
 
 <script src="js/jquery-1.11.3.js"></script>
 <script>
-  
+  $("#list>img")
+  .click(function(){
+   var $chosen=$("#chosen>img");
+   //4.修改
+   var $img2=$(this).clone();
+   $img2.replaceAll("#chosen>img") 
+  })
 </script>
 </body>
 </html>

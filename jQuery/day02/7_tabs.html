@@ -2,6 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
+  <script src="js/jquery-1.11.3.js"></script>
   <style>
     .tabs{ list-style:none; padding:0 }
     .tabs a{
@@ -26,6 +27,21 @@
 			<li class="active"><a data-toggle="tab" href="#">十元套餐</a></li>
 			<li><a data-toggle="tab" href="#">二十元套餐</a></li>
 			<li><a data-toggle="tab" href="#">三十元套餐</a></li>
-		</ul>
+    </ul>
+      
+    <script>
+      //1.查找要修改的元素
+      var $as=$("[data-toggle=tab]")
+      //2.绑定事件处理函数
+      $as.click(function(){
+        //3.查找要修改的元素
+        //4.修改元素(触发事件给他爹添加active，移除其他的active)
+        $(this)
+        .parent()
+        .addClass("active")
+        .siblings()
+        .removeClass("active")
+      })
+    </script>
  </body>
 </html>

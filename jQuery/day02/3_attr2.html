@@ -22,6 +22,19 @@
 <script src="js/jquery-1.11.3.js"></script>
 <script>
   //点击小图片，下方my-big中显示大图片
+  //1.查找触发事件的元素
+  //带data-target的属性都可以修改
+  var $imgs=$("[data-target]");
+  //2.绑定事件触发函数
+  $imgs.click(function(){
+    //3.查找要修改的元素
+    $big=$(".my-big")
+    //4.修改元素
+    //取出当前触发事件小图的大图路径放到大图里
+    var src=$(this).attr("data-target");
+    $big.attr({src});//变量名不用加引号
+      //.prop({src})//src:src
+  })
 </script>
 </body>
 </html>

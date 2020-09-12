@@ -26,14 +26,38 @@
 	<button id="add-block">添加区块</button>
 	
 	<div class="container">
-<!-- 		<div class="block"> -->
-<!-- 			<span class="close">×</span> -->
-<!-- 		</div> -->
-	</div>
-	
+		<!-- <div class="block"> -->
+    <!-- <span class="close">×</span></div> -->
+	<!-- </div> -->
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
-		
+		//DOM4步
+		//1.查找触发事件的元素
+		$("#add-block")
+
+		.click(function(){
+			// var  $div=$(".container")
+			$(`<div class="block"><span class="close">×</span></div>`)
+			.css("background-color",`rgb(
+				${parseInt(Math.random()*256)},
+				${parseInt(Math.random()*256)},
+				${parseInt(Math.random()*256)})`)
+				// console.log($block);
+		// $(".container").prepend($block)
+				.prependTo(".container")
+		});
+		//事件绑定在class为container的地
+		// $(".container")
+		// .click(function(e){
+		// 	var $tar=$(e.target);
+		// 	if($tar.attr("class")=="close"){
+		// 		$tar.parent().remove();
+		// 	}
+		// })
+		$(".close")
+		.click(function(){
+			$("close").remove();
+		})
 	</script>
 	
  </body>

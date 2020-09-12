@@ -28,6 +28,17 @@
 <script src="js/jquery-1.11.3.js"></script>
 <script>
   //双态按钮: 让按钮的class在up和down之间切换
+  $("button").click(function(){
+    var $this=$(this);
+    // if($this.hasClass("down")){
+    //   $this.removeClass("down")
+    // }else{
+    //   $this.addClass("down")
+    // }
+    //hanClass和removeClass是一次添加或移除,
+    //toggleClass是在添加和移除之间切换
+    $this.toggleClass("down")
+  })
 </script>
 </body>
 </html>
