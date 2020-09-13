@@ -7,34 +7,30 @@
 </head>
 <body>
   <script>
-    function liang(){
-      return new Promise(function(resolve,reject){
+    function liang(next){
       console.log(`亮起跑...`);
       setTimeout(function(){//异步
         console.log(`亮到达终点！`)
-        resolve();
+        next();
       },Math.random()*2*1000+1000)
-     })
     }  //    1~3之间随机
 
     function ran(){
-      return new Promise(function(resolve,reject){
       console.log(`然起跑...`)
       setTimeout(function(){//异步
         console.log(`然到达终点！`)
       })
-     })
     }
-    liang().then(ran)
+
     // liang();
     // ran();
 
-    // liang(
-    //   /*next*/
-    //   function(){
-    //     ran()
-    //   }
-    // );
+    liang(
+      /*next*/
+      function(){
+        ran()
+      }
+    );
   </script>
 </body>
 </html>

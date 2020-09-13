@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="ajax.js"></script>
+</head>
+<body>
+<script>
+  var total=0;
+  Promise.all([
+    ajax({
+      url:"http://localhost:5050",
+      data:"type=a"
+    }),
+    ajax({
+      url:"http://localhost:5050",
+      data:"type=b"
+    }),
+    ajax({
+      url:"http://localhost:5050",
+      data:"type=c"
+    }),
+  ]).then(arr=>{
+    /*arr:[
+      {type:"a",count:30},
+      {type:"b",count:20},
+      {type:"c",count:40},
+    ]*/
+    for(var obj of arr){
+      total+=obj.count;
+    }
+    console.log(total);
+  })
+</script>
+</body>
+</html>
