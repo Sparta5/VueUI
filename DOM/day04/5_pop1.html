@@ -9,10 +9,18 @@
       background-size:100%;
 		}
 	</style>
-	
+
  </head>
  <body>
 	<div id="pop"></div>
   <script src="js/5.js"></script>
  </body>
+ <script>
+	 var div=document.getElementById("pop")
+	 div.onclick=function(e){
+		 console.log(e.screenX,e.screenY)
+		 console.log(e.clientX,e.clientY)
+		 console.log(e.offsetX,e.offsetY)
+	 }
+ </script>
 </html>

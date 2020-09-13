@@ -16,6 +16,17 @@
        var btnAward=document.getElementById("btnAward");
        var btnBreak=document.getElementById("btnBreak");
       //  btnShoot.onclick=function(){
+      //     console.log(`发射一个普通导弹....`)
+      //  }
+      //  var shoot2=function(){alert(`发射跟踪导弹==>>`)}
+      //  btnAward.onclick=function(){
+      //     btnShoot.addEventListener("click",shoot2)
+      //    }
+      // btnBreak.onclick=function(){
+      //    btnShoot.removeEventListener("click",shoot2)
+      // }
+                     /*移除一个*/
+      //  btnShoot.onclick=function(){
          btnShoot.addEventListener("click",
          function(){
             console.log(`发射普通子弹===>`)
@@ -32,7 +43,7 @@
            }
            arr.push(shoot2);
            btnShoot.addEventListener(
-              "click",shoot2
+              "click",shoot2//arr[arr.length-1]
            )
          }
          //移除事件队列

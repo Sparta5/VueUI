@@ -30,6 +30,7 @@
       //this.innerHTML="❀";
       //正确: 
       //问题: 不希望随便点哪里都能变❀，只希望点在按钮上时才变❀
+			console.log(e)
       if(e.target.nodeName==="BUTTON"){
 		  //  var id=document.getElementById("sc")
         // e.target.innerHTML="❀";
@@ -47,7 +48,7 @@
             //错误处理: 复习第一阶段
             try{//尝试执行
               //eval: 可计算字符串类型的js表达式的值.——复习第一阶段
-              sc.value=eval(sc.value);
+              sc.value=eval(sc.value);//id全局变量可以找到(但不介意)
             }catch(err){//如果出错
               sc.value=err;//就把错误信息显示在文本框中
             }
@@ -58,6 +59,27 @@
         }
       }
     }
+	// var keys=document.getElementById("keys");
+	// 	keys.onclick=function(e){
+	// 		if(e.target.nodeName==="BUTTON"){
+	// 		// e.target.innerHTML="❀"
+	// 		var sc=document.getElementById("sc")
+	// 		switch(e.target.innerHTML){
+	// 			case "C":
+	// 				sc.value="";
+	// 				break;
+	// 			case "=":
+	// 				try{
+	// 					sc.value=eval(sc.value);
+	// 				}catch(err1){
+	// 					sc.value=err1;
+	// 				}
+	// 				break;
+	// 			default:
+	// 				sc.value+=e.target.innerHTML;
+	// 			}
+	// 	}
+	// }
 		</script>
 	</body>
 </html>

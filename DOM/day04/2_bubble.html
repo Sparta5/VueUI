@@ -19,6 +19,7 @@
 			var d3=document.getElementById("d3");
 			d1.onclick=function(e){
 				alert("d1疼")
+				console.log(e)
 			}
 			d2.onclick=function(e){
 				alert("d2疼")
@@ -28,6 +29,8 @@
 			d3.onclick=function(e){
 				e.stopPropagation()
 				alert("d3疼")
+				console.log(e)
+
 			}
 		</script>
 	</body>

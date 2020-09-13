@@ -19,7 +19,18 @@
 		<a href="#">返回顶部</a>
 	</div>
   <script>
-
+    window.onscroll=function(){
+      var scrollTop=document.body.scrollTop
+      ||document.documentElement.scrollTop;
+   
+    var div=document.getElementById("toTop");
+    console.log(scrollTop);
+    if(scrollTop>=500){
+      div.style.display="block"
+    }else{
+      div.style.display="none"
+    }
+   }
 	</script>
  </body>
 </html>
