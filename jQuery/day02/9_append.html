@@ -26,9 +26,9 @@
 	<button id="add-block">添加区块</button>
 	
 	<div class="container">
-		<!-- <div class="block"> -->
-    <!-- <span class="close">×</span></div> -->
-	<!-- </div> -->
+		<div class="block">
+    <span class="close">×</span></div>
+	</div>
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 		//DOM4步
@@ -44,20 +44,26 @@
 				${parseInt(Math.random()*256)})`)
 				// console.log($block);
 		// $(".container").prepend($block)
-				.prependTo(".container")
-		});
-		//事件绑定在class为container的地
-		// $(".container")
-		// .click(function(e){
-		// 	var $tar=$(e.target);
-		// 	if($tar.attr("class")=="close"){
-		// 		$tar.parent().remove();
-		// 	}
+				.prependTo(".container");
+		/****不用事件委托的方案*****/
+		// $(".close")
+		// .click(function(){
+		// 	if($(this).attr("class")=="close"){
+		// $(this).parent().remove();
+		// }
+		// // console.log($(this).attr("class"))
 		// })
-		$(".close")
-		.click(function(){
-			$("close").remove();
+		console.log($(".close"))
+		});
+	//	事件委托绑定在class为container的地
+		$(".container")
+		.click(function(e){
+			var $tar=$(e.target);
+			if($tar.attr("class")=="close"){
+				$tar.parent().remove();
+			}
 		})
+	
 	</script>
 	
  </body>

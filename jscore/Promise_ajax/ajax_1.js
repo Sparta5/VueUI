@@ -17,10 +17,9 @@
 //     因为函数调用时，中间是不能缺参数的！
 //     比如: ajax(url, type, callback )//没有第四个data参数值。如果没有第四个参数值，则ajax内的data变量获得的就是undefined
 //         ajax(url, type,    , callback) //编译错误
-// function ajax({url,type="get",data}){
-  function ajax(url,type,callback,data){
+function ajax({url,type="get",data}){
                     //  door    err
-  // return new Promise(function(resolve,reject){
+  return new Promise(function(resolve,reject){
     var xhr=new XMLHttpRequest();//不变！
     //如果发送get请求时，带参数
     if(type=="get"&&data!==undefined){
@@ -32,8 +31,7 @@
       if(xhr.readyState==4){
         var result=JSON.parse(xhr.responseText)
       //door(result);
-      callback(result)
-        // resolve(result);//开门，并将结果，反馈到外部！功能类似于普通函数的return
+        resolve(result);//开门，并将结果，反馈到外部！功能类似于普通函数的return
       }
     }
     if(type=="post"){//只有发送的是post请求时，才需要添加请求头
@@ -44,5 +42,5 @@
     }else{//而如果是get请求，send()中什么都没有
       xhr.send();
     }
-  // })
+  })
 }

@@ -10,28 +10,37 @@
 <body>
 <script>
   var total=0;
-  ajax({
-    url:"http://localhost:5050/",
-    data:"type=a"
-  })//return new Promise
-  .then(result=>{
-    total+=result.count;
-    return ajax({//return new Promise
-      url:"http://localhost:5050/",
-      data:"type=b"
-    });//如果ajax有返回值new Promise，可用return抛出到then外，接下一个then
-  })//return new Promise
-  .then(result=>{
-    total+=result.count;
-    return ajax({//return new Promise
-      url:"http://localhost:5050/",
-      data:"type=c"
-    });
-  })//return new Promise
-  .then(result=>{
-    total+=result.count;
-    console.log(total);
-  })
+  /**原版的请求方式***/
+  ajax(
+    "http://localhost:5050/",
+    "get",
+    function(result){
+      // console.log(result);
+      total+=result.count;
+        ajax(
+        "http://localhost:5050/",
+        "get",
+        function(result){
+          // console.log(result);
+          total+=result.count;
+              ajax(
+                "http://localhost:5050/",
+                "get",
+                function(result){
+                  // console.log(result);
+                  total+=result.count;
+                  console.log(total)
+                },
+                "type=c"
+            );          
+        },
+        "type=b"
+      );
+    },
+    "type=a"
+  );
+ 
+
 </script>
 </body>
-</html>
+</html> 
