@@ -12,6 +12,7 @@
 <img id="s2" src="img/star.png"><br/>
 <img id="s3" src="img/star.png"><br/>
 <img id="s4" src="img/star.png"><br/>
+<img id="s5" src="img/star.png"><br/>
 
 <script src="js/jquery-1.11.3.js"></script>
 <script>
@@ -21,6 +22,58 @@
   s3在屏幕左上角的小星星，点击后从左上角移动到屏幕右下边，走斜线
   s4点击小星星，变大、变淡....  直至消失
 */
+  $("#s1").click(function(){
+    var $this=$(this);
+    if($this.is(":animated")){
+      $this.stop()
+    }else{
+      $this.animate({left:400},2000)
+    }
+  })
+  $("#s2").click(function(){
+    var $this=$(this);
+    if($this.is(":animated")){
+      $this.stop()
+    }else{
+      $this.animate({left:400},2000).animate({top:200})
+    }
+  })
+  $("#s3").click(function(){
+    var $this=$(this);
+    if($this.is(":animated")){
+      $this.stop()
+    }else{
+      $this.animate({
+        left:400,
+        top:200
+      },2000)
+    }
+  })
+  $("#s4").click(function(){
+    var $this=$(this);
+    if($this.is(":animated")){
+      $this.stop()
+    }else{
+      $this.animate({
+        width:400,
+        height:400,
+        opacity:0
+      },2000,function(){
+        $this.hide();
+      })
+    }
+  })
+  $("#s5").click(function(){
+    var $this=$(this);
+    // $this.animate({opacity:0},600)
+    // .animate({opacity:1},600)
+    // .animate({opacity:0},600)
+    // .animate({opacity:1},600)
+   for(var i=0;i<100;i++){
+     $this.animate({opacity:0},6)
+     .animate({opacity:1},6)
+   }
+ })
 </script>
 </body>
 </html>

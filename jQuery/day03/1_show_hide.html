@@ -29,12 +29,15 @@
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 		$("#btn1").click(function(){
+			var $div=$("#target");
       //让#target瞬间显示隐藏: 
       
       //让#target过度显示隐藏:
-
-      //使用上滑下滑代替显示/隐藏效果
-      //使用淡入淡出代替显示/隐藏效果
+				// $div.toggle(2000);
+			//使用上滑下滑代替显示/隐藏效果
+				// $div.slideToggle(2000)
+			//使用淡入淡出代替显示/隐藏效果
+			  $div.fadeToggle()
 		});
 	</script>
  </body>

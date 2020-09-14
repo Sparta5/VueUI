@@ -12,6 +12,7 @@
 		}
 		#target.hover {
 			border: 1px solid #aaa;
+			background-color: red;
 			box-shadow: 0 0 6px #aaa;
 		}
 	</style>
@@ -25,7 +26,25 @@
 	</div>
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
-    
+		$("#target")
+		// .mouseenter(function(){
+		// 	$(this).addClass("hover")
+		// })
+		// $("#target")
+		// .mouseleave(function(){
+		// 	$(this).removeClass("hover")
+		// })
+		.hover(
+			function(){
+				$(this).addClass("hover")
+			},
+			function(){
+				$(this).removeClass("hover")
+			}
+			)
+		// .hover(
+		// 	function(){ $(this).toggleClass("hover") }
+		// )
 	</script>
  </body>
 </html>

@@ -22,7 +22,29 @@
 	<script>
 		//测试animate支持哪些属性
     //测试启动和停止动画
-    //测试延迟执行
+		//测试延迟执行
+		$("#btn1").click(function(){
+			$("#d1").animate({
+				width:50,
+				left:400,
+				opacity:0,
+				fontSize:24,
+				pidding:2,
+				// backgroundColor:"red",//没单位不能使用
+				// transform:"rotate(90deg)"//没单位不能使用
+			},2000)
+		})
+		$("#btn2").click(function(){
+			$("#d1").animate({
+				width:50,
+				left:0,
+				opacity:1,
+				fontSize:16,
+				pidding:50,
+				// backgroundColor:"rgb(8,8,9)",//没单位不能使用
+				// transform:"rotate(-90deg)"//没单位不能使用
+			},2000)
+		})
 	</script>
  </body>
 </html>

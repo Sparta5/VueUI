@@ -57,13 +57,20 @@
 		});
 	//	事件委托绑定在class为container的地
 		$(".container")
-		.click(function(e){
-			var $tar=$(e.target);
-			if($tar.attr("class")=="close"){
-				$tar.parent().remove();
-			}
-		})
-	
+		// .click(function(e){
+		// 	var $tar=$(e.target);
+		// 	if($tar.attr("class")=="close"){
+		// 		$tar.parent().remove();
+		// 	}
+		// })
+			.on("click",".close",function(){
+				var $this=$(this)
+				//3.查找要修改的yuansu
+				var $div=$this.parent()
+				//4.修改元素
+				$div.remove();
+				//$(this).parent().remove();
+			})
 	</script>
 	
  </body>
