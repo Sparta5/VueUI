@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <ul>
+      <li>商品名:<span id="title"></span></li>
+      <li>详情:<span id="subtitle"></span></li>
+      <li>价格:<span id="price"></span></li>
+      <li>服务承诺:<span id="promise"></span></li>
+    </ul>  
+  <script>
+   var search=location.search;
+    console.log(search)
+    var lid=search.split("=")[1];
+    $.ajax({
+      url:"http://xzserver.applinzi.com/details",
+      type:"get",
+      data:{lid},//{lid:5},//运行时被翻译"?lid=5"
+      dataType:"json",
+      success:function(result){
+        console.log(result)
+        var {product}=result;
+        var {title,subtitle,price,promise}=product;
+        $("#title").html(title);
+        $("#subtitle").html(subtitle);
+        $("#price").html(price.toFixed(2));
+        $("#promise").html(promise);
+      }
+    })
+  </script>
+
+</body>
+</html>

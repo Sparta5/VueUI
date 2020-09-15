@@ -33,6 +33,20 @@
 <script src="js/jquery-1.11.3.js"></script>
 <script>
   //获得当前单击的li在所有li中的位置i,i及其执行的都变为红色，i之后的都变为白色
+  var arr=[1,2,3,4,5];
+  var i=arr.indexOf(3);
+  console.log(arr)
+  var $lis=$(".score>li")
+  $lis.click(function(){
+    
+    //4.修改元素
+    var i=$lis.index($(this))
+    console.log(i);
+    $(`ul>li:lt(${i+1})`)
+        .css("background-color","yellow");
+    $(`ul>li:gt(${i})`)
+        .css("background-color","white")
+  })
 </script>
 </body>
 </html>
