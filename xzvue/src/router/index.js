@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index'
-import Details from '../views/Details'
+import Index from '../views/Index.vue'
+import Details from '../views/Details.vue'
+
 Vue.use(VueRouter)
-// 路由字典
+
 const routes = [
   {
     path: '/',
-    name: 'Index',
-    component: Index//匹配地址栏和文件夹
+    component: Index
   },
   { //这里是懒加载，暂时不要问，明天讲
-    path:"/details/:lid",
-    props:true,//有参数参数，必须加上props为true
+    path: '/details/:5',
+    name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    //异步加载要改两个地方
-    component: () => import(/* webpackChunkName: "detalis" */ '../views/Details.vue')
+    component: () => import(/* webpackChunkName: "details" */ '../views/Details.vue')
   }
 ]
 

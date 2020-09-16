@@ -1,8 +1,6 @@
 <template>
-  <!-- 复制旧的jquery的index。html项目到此 -->
-  <!-- 带/开头的img/都是在public文件夹下 -->
-   <main id="main" class="container">
-     <carousel></carousel>
+  <main id="main" class="container">
+    <carousel></carousel>
     <div>
       <h3 class="pb-3">
         <nav class="navbar navbar-light border-bottom border-secondary pb-0 mb-2">
@@ -265,17 +263,15 @@
   </main>
 </template>
 <script>
-import Carousel from "../components/index/Carousel"//引入轮播图
-export default {//导出轮播图
+  import Carousel from "../components/Index/Carousel"
+export default{
   components:{
     Carousel
-    //1:22
   }
 }
 </script>
 <style scoped>
-/* 引入旧的jquery的public中css下的index.css */
-  /*定制每层楼中每张商品图片的大小*/
+/*定制每层楼中每张商品图片的大小*/
 #main>div:nth-child(2)>h3>div:nth-child(2)>div:first-child img{
   margin-left:-200px; 
   height: 250px;
@@ -311,5 +307,4 @@ export default {//导出轮播图
   background-color: #e4393c;
   border-color: #e4393c;
 }
-
 </style>>
