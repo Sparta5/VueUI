@@ -11,55 +11,55 @@
         </nav>
         <div class="row mb-2">
           <div id="p1" class="col-md-7">
-            <!-- <div class="card border-0 flex-md-row box-shadow h-md-250">
+            <div class="card border-0 flex-md-row box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <h5 class="d-inline-block mb-2">Apple MacBook Air系列</h5>
+                <h5 class="d-inline-block mb-2" v-text="p1.title"></h5>
                 <h6 class="mb-5">
-                  <a class="text-dark" href="javascript:;">酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存</a>
-                </h6>
-                <span class="text-primary">¥6988.00</span>
-                <a class="btn btn-primary" href="product_details.html?lid=1">查看详情</a>
+                  <a class="text-dark" href="javascript:;" v-text="p1.details"></a>
+                </h6> <!-- 复杂的拼接用v-cloak  写自定义属性display:none-->
+                <span class="text-primary" v-cloak>¥{{p1.price.toFixed(2)}}</span>
+                <router-link class="btn btn-primary" :to="`/detals/${p1.href.split('=')[1]}`">查看详情</router-link>
               </div>
-              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="/img/index/study_computer_img1.png" data-holder-rendered="true">
-            </div> -->
+              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" :src="p1.pic" data-holder-rendered="true">
+            </div>
           </div>
           <div id="p2" class="col-md-5 pl-0">
-            <!-- <div class="card border-0 flex-md-row box-shadow h-md-250">
+            <div class="card border-0 flex-md-row box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <h5 class="d-inline-block mb-2">小米Air 金属超轻薄</h5>
+                <h5 class="d-inline-block mb-2" v-text="p2.title"></h5>
                 <h6 class="mb-5">
-                  <a class="text-dark" href="javascript:;">酷睿双核i5处理器|512GB SSD|2GB内存|英特尔HD独立显卡</a>
+                  <a class="text-dark" href="javascript:;" v-text="p2.details"></a>
                 </h6>
-                <span class="text-primary">¥3488.00</span>
-                <a class="btn btn-primary" href="product_details.html?lid=5">查看详情</a>
+                <span class="text-primary" v-cloak>{{p2.price.toFixed(0)}}</span>
+                <a class="btn btn-primary" :href="`/detals/${p1.href.split('=')[1]}`">查看详情</a>
               </div>
-              <img class="card-img-right flex-auto d-none d-md-block mt-5" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="/img/index/study_computer_img2.png" data-holder-rendered="true">
-            </div> -->
+              <img class="card-img-right flex-auto d-none d-md-block mt-5" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" :src="p1.pic" data-holder-rendered="true">
+            </div>
           </div>
         </div>
         <div class="row mb-2">
           <div id="p3" class="col-md-5">
-            <!-- <div class="card border-0 flex-md-row box-shadow h-md-250">
+            <div class="card border-0 flex-md-row box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <h5 class="d-inline-block mb-3">联想E480C 轻薄系列</h5>
-                <span class="text-primary">¥5399.00</span>
-                <a class="btn btn-primary" href="product_details.html?lid=9">查看详情</a>
+                <h5 class="d-inline-block mb-3" v-text="p3.title"></h5>
+                <span class="text-primary" v-cloak>¥{{p3.price.toFixed(2)}}</span>
+                <a class="btn btn-primary" :href="`/detals/${p3.href.split('=')[1]}`">查看详情</a>
               </div>
-              <img class="card-img-right flex-auto d-none d-md-block mt-5" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="/img/index/study_computer_img3.png" data-holder-rendered="true">
-            </div> -->
+              <img class="card-img-right flex-auto d-none d-md-block mt-5" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" :src="p1.pic" data-holder-rendered="true">
+            </div>
           </div>
           <div class="col-md-7 pl-0">
             <div id="others" class="row pr-3">
-              <!-- <div class="col-md-4 p-0 pl-2">
+              <div v-for="(p,i) of others" :key="i" class="col-md-4 p-0 pl-2">
                 <div class="card border-0 text-center">
-                  <img class="card-img-top" src="/img/index/study_computer_img4.png" alt="Card image cap">
+                  <img class="card-img-top" :src="p.pic" alt="Card image cap">
                   <div class="card-body p-0 pr-1 pl-1">
-                    <span class="d-inline-block">华硕RX310 金属超极本</span>
-                    <span class="text-primary small">¥4966.00</span>
-                    <a class="btn btn-sm btn-primary" href="product_details.html?lid=13">查看详情</a>
+                    <span class="d-inline-block" v-text="p.title"></span>
+                    <span class="text-primary small" v-cloak>{{p.price.toFixed(2)}}</span>
+                    <a class="btn btn-sm btn-primary" :href="`/details/p.href.split('=')[1]`">查看详情</a>
                   </div>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -265,7 +265,31 @@
 <script>
   import Carousel from "../components/Index/Carousel"
 export default{
-  components:{
+  data(){
+    return{
+      p1:{},
+      p2:{},
+      p2:{},
+      others:[]
+    }
+  },
+  mounted(){
+    this.axios.get("/index").then(result=>{
+      console.log(result);
+      //this.p1是添加到datap1中
+      [this.p1,this.p2,this.p3]=result.data;
+      this.others=result.data.slice(3)
+      // console.log(result.data.slice(3))
+    })
+  },
+  updated(){
+    console.log(`当前更新完data中的变量后自动触发`);
+    console.log(this.p1);
+    console.log(this.p2);
+    console.log(this.p3);
+    console.log(this.others);
+  },
+  components:{//引入局部组件
     Carousel
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <my-header></my-header>
     <router-view/>
   </div>
 </template>
@@ -11,6 +11,7 @@ export default {
 }
 </script>
 <style>
+[v-cloak]{display: none;}
 /*整个页面的背景色*/
 /* body{
   background-color: #f5f5f5;

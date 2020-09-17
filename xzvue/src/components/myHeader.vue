@@ -1,6 +1,5 @@
 <template>
-  <div>
-   <header id="header" class="container mb-4">
+  <header id="header" class="container mb-4">
     <nav class="navbar navbar-light">
       <a class="navbar-brand" href="/">
         <img src="/img/header/logo.png" alt="">
@@ -45,17 +44,17 @@
         <a class="nav-link text-muted" href="#">私人定制</a>
       </li>
     </ul>
-  </div>
+  </header>
 </template>
 <style scoped>
-/*定制搜索框的大小*/
-#header>.navbar>.form-inline>.input-group>input{
-  width:300px;
-}
-/*定制主导航当前导航项的字体颜色*/
-#header>.nav .nav-link.active,
-#header>.nav .nav-link:hover{
-  background:none;
-  font-weight:bold;
-}
-</style>>
+  /*定制搜索框的大小*/
+  #header>.navbar>.form-inline>.input-group>input{
+    width:300px;
+  }
+  /*定制主导航当前导航项的字体颜色*/
+  #header>.nav .nav-link.active,
+  #header>.nav .nav-link:hover{
+    background:none;
+    font-weight:bold;
+  }
+</style>
