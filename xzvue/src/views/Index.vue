@@ -1,6 +1,6 @@
 <template>
   <main id="main" class="container">
-    <carousel></carousel>
+    <carousel></carousel> <!-- carousel是小区下的组件 -->
     <div>
       <h3 class="pb-3">
         <nav class="navbar navbar-light border-bottom border-secondary pb-0 mb-2">
@@ -261,12 +261,14 @@
       <button type="button" class="btn btn-secondary btn-sm border-light border-left-0 border-right-0">热销<br>单品</button>
     </div>
   </main>
-</template>
+</template><!-- template 模板唯一父元素包裹 -->
 <script>
+       //引入carousel(Carousel是小区下的组件)--局部
   import Carousel from "../components/Index/Carousel"
 export default{
-  data(){
-    return{
+  //data函数: 只要调用一次data函数，就能创建一个新的模型对象副本，并返回
+  data(){//反复调用
+    return{//new Objectt
       p1:{},
       p2:{},
       p2:{},

@@ -1,4 +1,4 @@
-<template>
+<template><!-- template 模板唯一父元素包裹 -->
   <div id="app">
     <my-header></my-header>
     <router-view/>
