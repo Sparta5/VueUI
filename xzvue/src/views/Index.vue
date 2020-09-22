@@ -271,7 +271,7 @@ export default{
     return{//new Objectt
       p1:{},
       p2:{},
-      p2:{},
+      p3:{},
       others:[]
     }
   },
