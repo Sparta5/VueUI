@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import MyHeader from "./components/MyHeader"
+import MyHeader from "./components/myHeader"
 
 //引入全局组件MyHeader--相当于创建了一个小的new Vue 快递员
 Vue.component("my-header",MyHeader)//设置为全局组件
