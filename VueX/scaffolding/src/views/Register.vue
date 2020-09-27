@@ -18,8 +18,8 @@
         placeholder="请输入用户名"
         :attr="{maxlength:20}"
         v-model="username"
-        :state="usernameState"
-        @blur.native.capture="checkUsername">
+        @blur.native.capture="checkUsername"
+        :state="usernameState">
       </mt-field>
       <mt-field
         type="password"
@@ -27,8 +27,8 @@
         placeholder="请输入密码"
         :attr="{maxlength:20,autocomplete:'off'}"
         v-model="password"
-        :state="passwordState"
-        @blur.native.capture="checkPassword">
+        @blur.native.capture="checkPassword"
+        :state="passwordState">
       </mt-field>
       <mt-field
         type="password"
@@ -36,8 +36,8 @@
         placeholder="请在次输入密码"
         :attr="{maxlength:20,autocomplete:'off'}"
         v-model="conpassword"
-        :state="conpasswordState"
-        @blur.native.capture="checkConpassword">
+        @blur.native.capture="checkConpassword"
+        :state="conpasswordState">
       </mt-field>
       <mt-button type="primary" size="large" @click="handle">登录</mt-button>
     </div>
@@ -57,61 +57,53 @@ export default {
      }
   },
     methods:{
+      // 校验用户名
       checkUsername(){
-        let usernameRegExp = /^[0-9a-zA-Z_\.]{6,20}/
+        //1.校验用户名
+        let usernameRegExp = /^[0-9a-zA-Z_\.]{6,20}$/
         if(usernameRegExp.test(this.username)){
-          this.usernameState = 'success';
-          return 
+          this.usernameState = 'success'
         }else{
-          this.usernameState = 'error';
+          this.usernameState ='error',
           this.$toast({
-            message:"用户名错误",
-            position:"middle",
-            duration:'500'
-          });
-        }
-      },
-      checkPassword(){
-        let passwordRegExp = /^[a-zA-Z0-9_]{8,20}$/;
-        if(passwordRegExp.test(this.password)){
-          this.passwordState = 'success';
-        }else{
-          this.passwordState = 'error';
-          this.$toast({
-            message:'密码格式不正确',
-            position:'moddle',
-            duration:'5000'
-          });
-        }
-      },
-      checkConpassword(){
-        if(this.conpassword == this.password){
-          this.conpasswordState = 'success';
-        }else{
-          this.conpasswordState = 'error'
-          this.$toast({
-            message:'两次输入密码不一致',
-            position:'moddle',
-            duration:'3000'
-          });
-        }
-      },
-      handle(){
-        if(this.usernameState=='success' && this.passwordState=='success' && this.conpasswordState=='success'){
-          alert(`注册成功`)
-        }else{
-          // console.log(`用户名非法`)
-          // this.$toast('用户名为必填项');
-          this.$toast({
-            message:"用户名已被占用",
+            message:"用户名必填项",
             position:"top",//middle
             duration:"2000"
           })
         }
-        //2.校验密码
-        //3.校验两次密码
-       }
-     }
+      },
+      // 校验密码
+      checkPassword(){
+        let passwordRegExp = /^[0-9A-Za-z]{8,20}$/;
+        if(passwordRegExp.test(this.password)){
+          return true;
+        }else{
+          this.$toast({
+            message:"密码填写错误",
+            position:"top",
+            duration:"2000"
+          })
+          return false;
+        }
+      },
+      checkConpassword(){
+        if(this.password!=this.conpassword) {
+          this.$toast({
+            message:"两次密码不一致",
+            position:"top",
+            duration:"2000"
+          })
+          return false;
+        }else{
+          return true;
+        }
+      },
+      handle(){
+        if(this.checkUsername() && this.checkPassword() && this.checkConpassword()){
+          console.log(`提交`)
+          }
+        }
+    }
   }
 </script>
 <style scoped>
