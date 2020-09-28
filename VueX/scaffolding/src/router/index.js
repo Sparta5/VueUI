@@ -4,7 +4,9 @@ import Home from '../views/Home.vue'
 import Header from '../components/MintUI/Header'//引入路由
 import Button from '../components/MintUI/Button'
 import Field from '../components/MintUI/Field'
-import Register from '../components/MintUI/Register'
+import Register from '../views/Register'
+import Navbar from '../components/MintUI/Navbar'
+import Me from '../views/Me'
 
 Vue.use(VueRouter)
 
@@ -26,6 +28,14 @@ const routes = [
     component:Register
   },
   {
+    path:'/navbar',
+    component:Navbar
+  },
+  {
+    path:'/me',
+    component:Me
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home
@@ -41,8 +51,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  // mode: 'history',//不带#号
-  mode: 'hash',//带有#号
+  mode: 'history',//不带#号
+  // mode: 'hash',//带有#号
   base: process.env.BASE_URL,
   routes
 })
