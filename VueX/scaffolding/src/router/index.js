@@ -51,8 +51,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  // mode: 'history',//不带#号
-  mode: 'hash',//带有#号
+  mode: 'history',//不带#号
+  // mode: 'hash',//带有#号
   base: process.env.BASE_URL,
   routes
 })

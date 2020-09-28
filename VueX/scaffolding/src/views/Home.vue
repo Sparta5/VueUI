@@ -13,10 +13,18 @@
     <!-- 顶部选项卡开始 -->
     <div>
       <mt-navbar v-model="active">
+<<<<<<< HEAD
         <mt-tab-item id="1">UI</mt-tab-item>
         <mt-tab-item id="2">电商</mt-tab-item>
         <mt-tab-item id="3">网页</mt-tab-item>
         <mt-tab-item id="4">交互</mt-tab-item>
+=======
+        <mt-tab-item :id="item.id.toString()" 
+                     v-for="(item,index) of category"
+                     :key="index">
+          {{item.category_name}}
+          </mt-tab-item>
+>>>>>>> 247330c98a78d9f913f608d3d1bef3098c008cff
       </mt-navbar>
     </div>
     <!-- 顶部选项卡结束 -->
@@ -25,10 +33,17 @@
       <mt-tab-container v-model="active">
         <mt-tab-container-item id="1">
           <!-- 单一文章信息开始 -->
+<<<<<<< HEAD
           <div class="article">
             <!-- 标题连接开始 -->
             <div class="article-subject">
                北朝墓葬壁画上的现实与异想世界
+=======
+          <div class="article" v-for="(article,index) of articles" :key="index">
+            <!-- 标题连接开始 -->
+            <div class="article-subject">
+               {{article.subject}}
+>>>>>>> 247330c98a78d9f913f608d3d1bef3098c008cff
             </div>
             <!-- 标题连接结束 -->
             <!-- 缩略图及简介开始 -->
@@ -72,7 +87,13 @@ export default {
   data(){
     return{
       active:'1',
+<<<<<<< HEAD
       tabbar:'index'
+=======
+      tabbar:'index',
+      category:[],
+      articles:[]
+>>>>>>> 247330c98a78d9f913f608d3d1bef3098c008cff
     }
   },
   watch:{
@@ -84,6 +105,21 @@ export default {
         this.$router.push('/me').catch(e=>{})
       }
     }
+<<<<<<< HEAD
+=======
+  },
+  mounted(){
+    //
+    this.axios.get("/category").then(res=>{
+      this.category=res.data.results;
+    });
+    //获取特定分类下的文章信息的接口
+    this.axios.get('/lists?cid=' + this.active).then(res=>{
+      //接收客户端传递的URL参数
+      this.articles = res.data.results;
+    })
+
+>>>>>>> 247330c98a78d9f913f608d3d1bef3098c008cff
   }
 }
 </script>
