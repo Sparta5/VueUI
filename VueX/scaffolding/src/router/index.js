@@ -4,9 +4,10 @@ import Home from '../views/Home.vue'
 import Header from '../components/MintUI/Header'//引入路由
 import Button from '../components/MintUI/Button'
 import Field from '../components/MintUI/Field'
-import Register from '../views/Register'
 import Navbar from '../components/MintUI/Navbar'
+import Register from '../views/Register'
 import Me from '../views/Me'
+import Login from '../views/Login'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,10 @@ const routes = [
   {
     path:'/me',
     component:Me
+  },
+  {
+    path:'/login',
+    component:Login
   },
   {
     path: '/',

@@ -26,7 +26,7 @@ export default {
           el: '.swiper-pagination'
         },
         autoplay:{
-          delay:2000  // 1秒时长切换
+          delay:1000  // 1秒时长切换
         },
         loop: true
       }
@@ -55,6 +55,6 @@ export default {
   }
   /*样式穿透*/
   .swiper >>> .swiper-pagination-bullet{
-    background-color:blue;
+    background-color:black;
   }
 </style>
