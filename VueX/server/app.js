@@ -33,8 +33,11 @@ server.get('/category',(req,res)=>{
 });
 
 server.get('/lists',(req,res)=>{
-  let cid = req.query.cid
-  let sql = 'SELECT id,subject,description,image FROM xzqa_article WHERE category_id = ?';
+  let cid = req.query.cid;
+  let page = req.query.page;
+  let pagesize = 10;
+  let offset = (page -1) * pagesize;
+  let sql = 'SELECT id,subject,description,image FROM xzqa_article WHERE category_id = ? LIMIT  '+ offset + ',' + pagesize;
   //执行SQL查询
   pool.query(sql,[cid],(err,results)=>{
     if(err) throw err;

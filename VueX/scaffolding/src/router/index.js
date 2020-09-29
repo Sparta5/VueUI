@@ -8,6 +8,7 @@ import Navbar from '../components/MintUI/Navbar'
 import Register from '../views/Register'
 import Me from '../views/Me'
 import Login from '../views/Login'
+import Infinite from '../components/MintUI/Infinite'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,10 @@ const routes = [
   {
     path:'/login',
     component:Login
+  },
+  {
+    path:'/infinite',
+    component:Infinite
   },
   {
     path: '/',
