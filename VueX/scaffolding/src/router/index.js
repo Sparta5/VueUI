@@ -9,7 +9,7 @@ import Register from '../views/Register'
 import Me from '../views/Me'
 import Login from '../views/Login'
 import Infinite from '../components/MintUI/Infinite'
-
+import Article from '../views/Article'
 Vue.use(VueRouter)
 
 const routes = [
@@ -44,6 +44,10 @@ const routes = [
   {
     path:'/infinite',
     component:Infinite
+  },
+  {
+    path:'/article/:id',
+    component:Article
   },
   {
     path: '/',

@@ -33,16 +33,48 @@ server.get('/category',(req,res)=>{
 });
 
 server.get('/lists',(req,res)=>{
+  //接收文章分类ID
   let cid = req.query.cid;
+  //接收页码
   let page = req.query.page;
-  let pagesize = 10;
+  //自定义设置记录数量保存一个变量里
+  let pagesize = 15;
+  //计算出offset参数值
   let offset = (page -1) * pagesize;
   let sql = 'SELECT id,subject,description,image FROM xzqa_article WHERE category_id = ? LIMIT  '+ offset + ',' + pagesize;
+  //储存总记录数
+  let rowcount;
+  //储存总页数
+  let pagecount;
   //执行SQL查询
-  pool.query(sql,[cid],(err,results)=>{
+  pool.query(sql,[cid],(err,result)=>{
     if(err) throw err;
-    res.send({message:'查询成功',code:1,results:results});
+    /////////////////
+    //1.获取记录数
+    sql = 'SELECT COUNT(id) AS count FROM xzqa_article WHERE category_id=?';
+    pool.query(sql,[cid],(err,results)=>{
+      if(err) throw err;
+      rowcount = results[0].count
+      //2.计算总页数
+      pagecount = Math.ceil(rowcount / pagesize);
+      console.log(rowcount);
+      console.log(pagecount);
+      res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});
+    });
+    
   })
+    /////////////////
+})
+server.get('/article',(req,res)=>{
+  //获取文章ID
+  let id = req.query.id;
+  //SQL查询 -- 多表(内)连接
+  let sql = 'SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_author AS u INNER JOIN xzqa_article  AS r ON  author_id = u.id WHERE r.id=?';
+  pool.query(sql,[id],(err,results)=>{
+    if(err) throw err;
+    res.send({message:'查询成功',code:1,result:results[0]});
+    console.log(results[0])
+  });
 })
 
 server.listen(3000,()=>{

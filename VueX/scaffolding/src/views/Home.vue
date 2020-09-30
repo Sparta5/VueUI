@@ -25,7 +25,8 @@
    <div class="main"
      infinite-scroll-distance="20"
      v-infinite-scroll="loadMore"
-     infinite-scroll-disabled="busy">
+     infinite-scroll-disabled="busy"
+     infinite-scroll-immediate-check="true">
      <mt-tab-container v-model="active">
        <!-- *********************** -->
         <mt-tab-container-item :id="active.toString()">
@@ -33,25 +34,29 @@
           <div class="article" 
               v-for="(article,index) of articles"
               :key="index">
-            <!-- 标题链接开始 -->
-            <div class="article-subject">
-               {{article.subject}}
-            </div>
-            <!-- 标题链接结束 -->
-            <!-- 缩略图及简介开始 -->
-            <div class="article-wrapper">
-              <div class="article-image" v-if="article.image != null">
-                <img :src="article.image">
-              </div>
-              <div class="article-desc">
-                {{article.description}}
-              </div>
-            </div>
-            <!-- 缩略图及简介结束 -->
+              <router-link :to="`/article/${article.id}`">
+                <!-- 标题链接开始 -->
+                <div class="article-subject">
+                  {{article.subject}}
+                </div>
+                <!-- 标题链接结束 -->
+                <!-- 缩略图及简介开始 -->
+                <div class="article-wrapper">
+                  <div class="article-image" v-if="article.image != null">
+                    <img :src="article.image">
+                  </div>
+                  <div class="article-desc">
+                    {{article.description}}
+                  </div>
+                </div>
+                <!-- 缩略图及简介结束 -->
+             </router-link>
           </div>
           <!-- 单一文章信息结束 -->
         </mt-tab-container-item>
      </mt-tab-container>
+     <!-- 如果到底则显示底线 -->
+     <div v-if="page >= pagecount">我是底线</div>
    </div>
    <!-- 面板结束 -->
    <!-- 底部选项卡开始 -->
@@ -87,30 +92,44 @@ export default {
       //
       busy:false,
       //
-      page:1
+      page:1,
+      //
+      pagecount:0
     }
   },
   methods:{
-      loadMore(){
-        //
-        //
+      loadData(cid,page){
+        //显示提示框
+        this.$indicator.open({
+          text:'加载中...',
+          spinnerType:'double-bounce'
+        })
         this.busy = true;
         //
+          this.axios.get('/lists?cid=' + cid + '&page=' + page).then(res=>{
+            let data =res.data.results;
+            this.pagecount = res.data.pagecount;//获取页数给pagecount
+            data.forEach(item=>{
+            if(item.image != null){
+              item.image = require('../assets/articles/' + item.image);
+            }
+            this.articles.push(item);
+         })
+         //真正的作用是：上一次的请求已经处理完成了
+         //如果现在再次进行滚动范围，则仍然要触发滚动方法
+         this.busy = false;
+         this.$indicator.close();//结束显示框
+       }) ;
+      },
+      //滚动到指定距离范围内加载更多服务器数据
+      loadMore(){
+        //页面进行累加
         this.page++;
-        //
-        this.axios.get('/lists?cid=' + this.active + '&page=' + this.page).then(res=>{
-          let data =res.data.results;
-          data.forEach(item=>{
-          if(item.image != null){
-            item.image = require('../assets/articles/' + item.image);
-          }
-          this.articles.push(item);
-        })
-        //真正的作用是：上一次的请求已经处理完成了
-        //如果现在再次进行滚动范围，则仍然要触发滚动方法
-        this.busy = false;
-      })   
-    }
+        if(this.page<=this.pagecount){
+                       //当前的分类ID和页码
+          this.loadData(this.active,this.page);
+        }
+      }
   },
   watch:{
     //监听顶部选项卡
@@ -120,6 +139,7 @@ export default {
         //
         console.log(this.active)
         let data = res.data.results;
+        this.pagecount = res.data.pagecount;
         //
         data.forEach(item=>{
           if( item.image != null){
@@ -150,7 +170,8 @@ export default {
     //
     this.axios.get('/lists?cid=' + this.active + '&page=1').then(res=>{
       //
-      let data = res.data.results
+      let data = res.data.results;
+      this.pagecount = res.data.pagecount;
       console.log(data)
       data.forEach(item => {
         if(item.image != null){
