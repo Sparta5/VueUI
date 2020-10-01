@@ -45,7 +45,6 @@
               </div>
               <div class="article-desc">
                 {{article.description}}
-              </div>
             </div>
             <!-- 缩略图及简介结束 -->
           </div>
