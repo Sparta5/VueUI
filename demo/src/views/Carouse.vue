@@ -28,7 +28,8 @@ export default {
         autoplay:{
           delay:1000  // 1秒时长切换
         },
-        loop: true
+        loop: true,
+        autoplayDisableOnInteraction : false
       }
     }  
   },

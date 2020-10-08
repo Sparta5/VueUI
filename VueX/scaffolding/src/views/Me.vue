@@ -42,7 +42,7 @@ export default {
       }
       if(value == 'me'){
         this.$router.push('/me').catch(e=>{});
-      }
+      }z
     }
   }
 }

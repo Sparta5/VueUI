@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import moment from 'moment'
 import qs from 'qs'
 //导入Mint UI
 import MintUI from 'mint-ui';
@@ -13,6 +14,9 @@ Vue.use(MintUI)
 //配置服务器的默认地址
 axios.defaults.baseURL = 'http://127.0.0.1:3000'
 Vue.prototype.axios = axios;
+
+Vue.prototype.moment = moment;
+
 Vue.config.productionTip = false
 
 new Vue({

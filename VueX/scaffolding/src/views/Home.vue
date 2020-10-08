@@ -11,46 +11,53 @@
    </div>
    <!-- 顶部导航结束 -->
    <!-- 顶部选项卡开始 -->
-   <div><!-- 接收到的数数字必须要转为字符串toString -->
+   <div>
      <mt-navbar v-model="active">
         <mt-tab-item 
-          :id="item.id.toString()"
-          v-for="(item,index) of category" :key="index">
+          :id="item.id.toString()" 
+          v-for="(item,index) of category"
+          :key="index">
           {{item.category_name}}
-        </mt-tab-item>
+        </mt-tab-item>    
      </mt-navbar>
    </div>
    <!-- 顶部选项卡结束 -->
    <!-- 面板开始 -->
-   <div class="main"
-     infinite-scroll-distance="20"
-     v-infinite-scroll="loadMore"
-     infinite-scroll-disabled="busy">
+   <div 
+      class="main"
+      infinite-scroll-distance="20"
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="busy"
+      infinite-scroll-immediate-check="true">
      <mt-tab-container v-model="active">
-       <!-- *********************** -->
         <mt-tab-container-item :id="active.toString()">
           <!-- 单一文章信息开始 -->
-          <div class="article" 
-              v-for="(article,index) of articles"
-              :key="index">
-            <!-- 标题链接开始 -->
-            <div class="article-subject">
-               {{article.subject}}
-            </div>
-            <!-- 标题链接结束 -->
-            <!-- 缩略图及简介开始 -->
-            <div class="article-wrapper">
-              <div class="article-image" v-if="article.image != null">
-                <img :src="article.image">
+          <div 
+            class="article"
+            v-for="(article,index) of articles"
+            :key="index">
+            <router-link :to="`/article/${article.id}`">
+              <!-- 标题链接开始 -->
+              <div class="article-subject">
+                {{article.subject}}
               </div>
-              <div class="article-desc">
-                {{article.description}}
-            </div>
-            <!-- 缩略图及简介结束 -->
+              <!-- 标题链接结束 -->
+              <!-- 缩略图及简介开始 -->
+              <div class="article-wrapper">
+                <div class="article-image" v-if="article.image != null">
+                  <img v-lazy="article.image" alt="">
+                </div>
+                <div class="article-desc">
+                  {{article.description}}         
+                </div>
+              </div>
+              </router-link>
+              <!-- 缩略图及简介结束 -->
           </div>
           <!-- 单一文章信息结束 -->
         </mt-tab-container-item>
      </mt-tab-container>
+    <p v-if="page>=pagecount">我是底线</p>
    </div>
    <!-- 面板结束 -->
    <!-- 底部选项卡开始 -->
@@ -71,100 +78,6 @@
    <!-- 底部选项卡结束 -->
   </div>
 </template>
-<script>
-export default {
-  data(){
-    return {
-      //默认被选定的顶部选项卡及面板的ID
-      active:'1',
-      //默认被选定的顶部选项卡的ID
-      tabbar:'index',
-      //存储服务器返回的文章分类信息
-      category:[],
-      //储存服务器返回的文章信息
-      articles:[],
-      //
-      busy:false,
-      //
-      page:1
-    }
-  },
-  methods:{
-      loadMore(){
-        //
-        //
-        this.busy = true;
-        //
-        this.page++;
-        //
-        this.axios.get('/lists?cid=' + this.active + '&page=' + this.page).then(res=>{
-          let data =res.data.results;
-          data.forEach(item=>{
-          if(item.image != null){
-            item.image = require('../assets/articles/' + item.image);
-          }
-          this.articles.push(item);
-        })
-        //真正的作用是：上一次的请求已经处理完成了
-        //如果现在再次进行滚动范围，则仍然要触发滚动方法
-        this.busy = false;
-      })   
-    }
-  },
-  watch:{
-    //监听顶部选项卡
-    active(){
-      this.articles= [];//
-      this.axios.get('/lists?page=1&cid=' + this.active).then(res=>{
-        //
-        console.log(this.active)
-        let data = res.data.results;
-        //
-        data.forEach(item=>{
-          if( item.image != null){
-            item.image = require('../assets/articles/' + item.image);
-          }
-          //
-          this.articles.push(item);
-        });
-      });
-    },
-    //监听底部选项卡,可以带有两个参数,参数1代表新值,参数2代表旧值
-    tabbar(value){
-      if(value == 'index'){
-        this.$router.push('/').catch(e=>{});
-      }
-      if(value == 'me'){
-        this.$router.push('/me').catch(e=>{});
-      }
-    }
-  },
-    mounted(){
-     this.axios.get('/category').then(res=>{
-      // console.log(res.data)
-        //
-      this.category = res.data.results;
-    });
-
-    //
-    this.axios.get('/lists?cid=' + this.active + '&page=1').then(res=>{
-      //
-      let data = res.data.results
-      console.log(data)
-      data.forEach(item => {
-        if(item.image != null){
-          //
-          item.image = require('../assets/articles/' + item.image);
-        }
-        //
-        //
-        this.articles.push(item)
-        // console.log(elem)
-      });
-    })
-  }
-}
-</script>
 <style scoped>
 .shortcut a{ 
   display:inline-block;
@@ -178,7 +91,7 @@ export default {
 /* 文章容器 */
 .article{
 	padding-bottom:10px;
-	border-bottom:1px solid rgb(10, 10, 10);
+	border-bottom:1px solid #999;
 	margin:10px;
 }
 /* 文章标题 */
@@ -213,3 +126,102 @@ export default {
 }
 
 </style>
+<script>
+export default {
+  data(){
+    return {
+      //默认被选定的顶部选项卡及面板的ID
+      active:'1',
+      //默认被选定的顶部选项卡的ID
+      tabbar:'index',
+      //存储服务器返回的文章分类信息
+      category:[],
+      //存储服务器返回的文章信息
+      articles:[],
+      //用于标识当前服务器在正在空闲，可以处理用户滚动行为所触发的滚动方法
+      busy:false,
+      //标识页码的初始值
+      page:1,
+      //储存某一分类下文章总页数
+      pagecount:0
+    }
+  },
+  methods:{
+    /** 
+     *加载数据的自定义函数，会被mounted、阿错题本及loadMore分别进行调用 
+     
+     * 
+     * @param cid number,表示文章分类的ID
+     * @param page number,表示页码
+     * 
+     * @return void
+     * **/
+    loadData(cid,page){
+        //显示加载提示框
+        // this.$indicator.open("努力加载中...")
+        this.$indicator.open({
+          text:"努力加载中...",
+          spinnerType:"snake"
+        })
+        //此时的真正作用是：现在已经触发了滚动方法,既使现在再次进行
+        //滚动范围也不再触发滚动方法了    
+        this.busy = true;
+         //向服务器发送请求，以获取当前分类下的第几页的数据
+        this.axios.get('/lists?cid=' + cid + '&page=' + page).then(res=>{
+          let data = res.data.results;
+          //赋值总页数给pagecount
+          this.pagecount = res.data.pagecount;
+          data.forEach(item=>{
+            if(item.image != null){
+              item.image = require('../assets/articles/' + item.image);
+            }
+            this.articles.push(item);
+          })
+          //真正的作用是：上一次的请求已经处理完成了
+          //如果现在再次进行滚动范围，则仍然要触发滚动方法
+          this.busy = false;
+          this.$indicator.close()
+        })
+    },
+    //滚动到指定距离范围内时加载更多的服务器数据
+    loadMore(){
+      //此时的真正作用是：现在已经触发了滚动方法,既使现在再次进行
+
+      //页码进行累加
+      this.page++;
+      if(this.page<=this.pagecount){//当前页码小于总页码
+        this.loadData(this.active,this.page)
+     }
+    }
+  },
+  watch:{
+    //监听顶部选项卡
+    active(){
+      //清除之前可保存的文章数据
+      this.articles= [];
+      //保证切换顶部选项卡后要显示的当前分类的第一页的数据
+      this.page = 1;
+      this.loadData(this.active,this.page)
+    },
+    //监听底部选项卡,可以带有两个参数,参数1代表新值,参数2代表旧值
+    tabbar(value){
+      if(value == 'index'){
+        this.$router.push('/').catch(e=>{});
+      }
+      if(value == 'me'){
+        this.$router.push('/me').catch(e=>{});
+      }
+    }
+  },
+  mounted(){
+    // 获取文章分类信息
+    this.axios.get('/category').then(res=>{
+       //接收服务器返回数据并且赋值给属性category
+       this.category = res.data.results;
+    });
+
+    // 获取默认文章分类下的文章数据
+     this.loadData(this.active,this.page)
+  }
+}
+</script>

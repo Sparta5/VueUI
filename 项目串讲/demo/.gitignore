@@ -1,8 +1,6 @@
 .DS_Store
 node_modules
 /dist
-src/assets/articles
-src/assets/avatar
 
 # local env files
 .env.local
