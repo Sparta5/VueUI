@@ -23,11 +23,11 @@
             <!-- 标题结束 -->
             <!-- 作者信息开始 -->
             <div class="author-info">
-                <img src="avatar" class="author-info-avatar">
+                <img :src="info.avatar" class="author-info-avatar">
                 <div class="author-info-detail">
                     <div class="author-info-nickname">{{info.nickname}}</div>
                     <div class="author-info-badge">
-                        共<mt-badge type="primary" size="small">{{info.article_number}}</mt-badge>篇
+                        共<mt-badge type="warning" size="normal">{{info.article_number}}</mt-badge>篇
                     </div>
                 </div>
                 
@@ -128,7 +128,11 @@ export default {
         // 发送请求
         this.axios.get('/article?id=' + id).then(res=>{
             console.log(res.data)
-            this.info = res.data.result       
+            // this.info = res.data.result 
+            let data = res.data.result;
+            data.avatar = require('../assets/avatar/' + data.avatar);
+            this.info = data;  
+            console.log(this.info)
         })
     }
 }

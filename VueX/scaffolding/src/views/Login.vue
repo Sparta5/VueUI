@@ -5,7 +5,7 @@
         <router-link to="/" slot="left">
           <mt-button icon="back"></mt-button>
         </router-link>
-        <router-link to="/login" slot="right" class="shortcut">注册</router-link>
+        <router-link to="/register" slot="right" class="shortcut">注册</router-link>
     </mt-header>
     <!-- 顶部导航结束 -->
     <!-- 用户登录表单区开始 -->
@@ -77,9 +77,18 @@ export default {
     },
     handle(){
       if(this.usernameState == "success" && this.passwordState == "success"){
-        if(this.username != 'admin888' && this.password != 'admin888'){
-          this.$messagebox("登录提示","用户名登录失败")
+        let obj = {
+          username:this.username,
+          password:this.password
         }
+        this.axios.post('/login',this.qs.stringify(obj)).then(res=>{
+          if(res.data == 1){
+            this.$router.push('/')
+          }else{
+            this.$messagebox("登录提示":"登录成功")
+          }
+        })
+        
       }
     }
   }

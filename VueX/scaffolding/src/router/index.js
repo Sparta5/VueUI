@@ -10,9 +10,20 @@ import Me from '../views/Me'
 import Login from '../views/Login'
 import Infinite from '../components/MintUI/Infinite'
 import Article from '../views/Article'
+import Swipe from '../components/MintUI/Swipe'
+import Qs from '../components/MintUI/Qs.vue'
+// import { component } from 'vue/types/umd'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path:'/qs',
+    component:Qs
+  },
+  {
+    path:'/swipe',
+    component:Swipe
+  },
   {
     path:'/header',
     component:Header

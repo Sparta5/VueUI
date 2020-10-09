@@ -1,6 +1,9 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
+const bodyParser  = require('body-parser');
+// const md5 = require('md5')
+
 
 const mysql = require('mysql');
 const pool = mysql.createPool({
@@ -23,6 +26,9 @@ server.use(cors({
   origin:['http://127.0.0.1:8080','http://localhost:8080','http://127.0.0.1:8081','http://localhost:8081']
 }));
 
+server.use(bodyParser.urlencoded({
+  extended:false
+}));
 
 
 // 获取所有文章分类的接口
@@ -86,6 +92,44 @@ server.get('/article',(req,res)=>{
     //因为返回的数据为 [{...}]，而且在只包含一条记录
   res.send({message:'查询成功',code:1,result:results[0]});
   })
+})
+
+
+//用户注册接口
+server.post('/register',(req,res)=>{
+  let username = req.body.username;
+  let password = req.body.password;
+  console.log(username,password)
+  //保持唯一性要检查用户名是否存在
+  let sql = 'SELECT id FROM xzqa_author WHERE username=?';
+  pool.query(sql,[username],(error,results)=>{
+    if(error) throw error;
+    if(results.length == 0){
+      sql = 'INSERT INTO xzqa_author(username,password) VALUES(?,MD5(?))';
+      pool.query(sql,[username,password],(error,results)=>{
+        if(error) throw error;
+        res.send({massage:'注册成功',code:1})
+      })
+    } else {
+      res.send({massage:'注册失败',code:0})
+    }
+  })
+})
+
+//用户登录的接口
+server.post('/login',(req,res)=>{
+  let username = req.body.username;
+  let password = req.body.password;
+  let sql = 'SELECT id,username,nickname,avatar FROM xzqa_author WHERE username=? AND password=?';
+  pool.query(sql,[username,password],(error,results)=>{
+    if(error) throw error;
+    if(result.length == 1){
+      res.send({massage:'登陆成功',code:1})
+    }else{//否则登录成功
+      
+    }
+  }) 
+
 })
 
 server.listen(3000,()=>{
