@@ -83,9 +83,11 @@ export default {
         }
         this.axios.post('/login',this.qs.stringify(obj)).then(res=>{
           if(res.data == 1){
+            //提交Mutaions
+            localStorage.setItem('isLogined','1');
             this.$router.push('/')
           }else{
-            this.$messagebox("登录提示":"登录成功")
+            this.$messagebox("登录提示","登录成功")
           }
         })
         

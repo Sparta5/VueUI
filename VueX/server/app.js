@@ -126,7 +126,7 @@ server.post('/login',(req,res)=>{
     if(result.length == 1){
       res.send({massage:'登陆成功',code:1})
     }else{//否则登录成功
-      
+      res.send({message:'登录失败',code:0})
     }
   }) 
 

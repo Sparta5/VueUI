@@ -3,9 +3,12 @@
    <!-- 顶部导航开始 -->
    <div>
      <mt-header title="学前端,到学问">
-       <div slot="right" class="shortcut">
+       <div slot="right" class="shortcut" v-if="this.$store.state.isLogined == 0">
          <router-link to="/register">注册</router-link>
          <router-link to="/login">登录</router-link>
+       </div>
+       <div slot="right" class="shortcut" v-else>
+         <router-link to="/">注销</router-link>
        </div>
      </mt-header>
    </div>

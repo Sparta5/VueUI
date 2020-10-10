@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="removeAll()">清除所有的localStorage数据项</button>
+  <script>
+    function removeAll(){
+      window.localStorage.clear();
+      console.log('现在localStorage中还包含有' + localStorage.length + '个成员');
+    }
+  </script>
+</body>
+</html>
