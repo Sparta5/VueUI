@@ -5,6 +5,7 @@ import Access1 from '../views/Access1'
 import Access2 from '../views/Access2'
 import Changeage from '../views/Changeage'
 import AddProduct from '../views/AddProduct'
+import Ajax from '../views/Ajax'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ const routes = [
   },{
     path:'/addproduct',
     component: AddProduct
+  },
+  {
+    path:'/ajax',
+    component: Ajax
   },
   {
     path: '/about',

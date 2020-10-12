@@ -23,13 +23,33 @@ const pool = mysql.createPool({
 
 
 server.use(cors({
-  origin:['http://127.0.0.1:8080','http://localhost:8080','http://127.0.0.1:8081','http://localhost:8081']
+  origin:['http://127.0.0.1:8080','http://localhost:8080','http://127.0.0.1:8081','http://localhost:8081','http://127.0.0.1:8082','http://localhost:8082']
 }));
 
 server.use(bodyParser.urlencoded({
   extended:false
 }));
 
+server.get('/vuex',(req,res)=>{
+  let result = [
+    {
+      // id:1,
+      productName:'SHARP小米120英寸液晶电视PN',
+      salePrice:6666669.00
+    },
+    {
+      // id:2,
+      productName:'华为投屏平板大屏幕电视超',
+      salePrice:4459999.00
+    },
+    {
+      // id:3,
+      productName:'1000英寸4K智能会议平板120英寸85英寸高清教育电视机',
+      salePrice: 847999.00
+    }
+  ]
+  res.send({massage:'查询成功',results:result});
+});
 
 // 获取所有文章分类的接口
 server.get('/category',(req,res)=>{

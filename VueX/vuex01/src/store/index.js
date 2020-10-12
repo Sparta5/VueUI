@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import axios from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -55,6 +55,17 @@ export default new Vuex.Store({
   },
   //拉货车
   actions: {
+    //
+    getData(context){
+      console.log(context)
+      axios.get('http://127.0.0.1:3000/vuex').then(res=>{
+        let results = res.data.results;
+        //通知搬运工将数据放置到state中去
+        for(let n = 0;n<results.length;n++){
+          context.commit('addProduct',results[n])
+        }
+      })
+    }
   },
   //不同车间
   modules: {
