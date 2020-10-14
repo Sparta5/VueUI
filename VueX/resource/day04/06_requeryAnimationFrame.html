@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .canvas {
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas class="canvas"></canvas>
+  <script>
+    let canvasEle = document.querySelector('.canvas');
+    canvasEle.width = 600;
+    canvasEle.height = 480;
+    let ctx = canvasEle.getContext('2d');
+    //动画效果
+    let x = 0;
+    let y = 0;
+    let xDistance =2 ;
+    let yDistance =3;
+    function animation(){
+      ctx.clearRect(0,0,canvasEle.width,canvasEle.height);
+      ctx.strokeRect(x,y,100,100)
+      // ctx.fillRect(x,y,100,100)
+      // ctx.strokeText(x,y,100,100);
+      // ctx.fillRect(x,y,100,100);
+      ctx.strokeText('中国',x,300);
+      // ctx.fillRect('中国',300,300);
+      x+= xDistance;
+      y+= yDistance;
+      if(x >= canvasEle.width - 100){
+        xDistance = -2;
+      }
+      if( x <= 0){
+        xDistance =2 ;
+      }
+      if( y >= canvasEle.height - 100){
+        yDistance = -3;
+      }
+      if(y <= 0){
+        yDistance = 3;
+      }
+      window.requestAnimationFrame(animation);
+    }
+    animation()
+  </script>
+
+</body>
+
+</html>

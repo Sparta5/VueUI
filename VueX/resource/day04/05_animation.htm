@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .canvas {
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas class="canvas"></canvas>
+  <script>
+    let canvasEle = document.querySelector('.canvas');
+    canvasEle.width = 600;
+    canvasEle.height = 480;
+    let ctx = canvasEle.getContext('2d');
+    //动画效果
+    let x = 0;
+    let y = 0;
+    let xDistance =1 ;
+    window.setInterval(()=>{
+      ctx.clearRect(0,0,canvasEle.width,canvasEle.height);
+      ctx.strokeRect(x,y,100,100)
+      ctx.strokeText('hhh',100,100);
+      ctx.fillText('中国',300,300);
+      x+= xDistance;
+      if(x >= canvasEle.width - 100){
+        xDistance = -1;
+      }
+      if( x <= 0){
+        xDistance =1 ;
+      }
+
+    },15)
+
+  </script>
+
+</body>
+
+</html>
