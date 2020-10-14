@@ -26,10 +26,14 @@
     let y = 0;
     let xDistance =2 ;
     let yDistance =3;
+    let n=0;
     function animation(){
+      n++;
+      console.log(n)
+      //擦除整个画布后重新再行绘制操作
       ctx.clearRect(0,0,canvasEle.width,canvasEle.height);
-      ctx.strokeRect(x,y,100,100)
-      // ctx.fillRect(x,y,100,100)
+      // ctx.strokeRect(x,y,100,100)
+      ctx.fillRect(x,y,100,100)
       // ctx.strokeText(x,y,100,100);
       // ctx.fillRect(x,y,100,100);
       ctx.strokeText('中国',x,300);
@@ -48,7 +52,9 @@
       if(y <= 0){
         yDistance = 3;
       }
+      //等待与显示器相同的刷新频率相同的时间后再次绘制动画的另外一帧
       window.requestAnimationFrame(animation);
+      console.log(animation)
     }
     animation()
   </script>

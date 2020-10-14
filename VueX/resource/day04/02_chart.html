@@ -38,9 +38,9 @@
     canvasEle.height = 680;
     let ctx =canvasEle.getContext('2d');
     
-    //
+    //标识柱形的宽度
     let width = 50;
-    // ctx.fillStyle = 'red';
+    //计算间距
     let distance = Math.ceil((canvasEle.width - dataset.length * width) / (dataset.length+1))
     //绘制矩形
     for (let n = 0; n<dataset.length;n++){
@@ -53,6 +53,7 @@
       ctx.font = '14px Microsoft Yahei';
       ctx.textAlign = 'center';
       ctx.fillText(dataset[n].value,x + Math.ceil(width/2),y-10);
+      console.log(distance)
       // //绘制两条坐标线
       // ctx.beginPath();
       // ctx.moveTo(50,50);
