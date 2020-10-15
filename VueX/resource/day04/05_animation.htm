@@ -24,20 +24,27 @@
     //动画效果
     let x = 0;
     let y = 0;
-    let xDistance =1 ;
+    let xDistance =3;
+    let yDistance =2 ;
     window.setInterval(()=>{
       ctx.clearRect(0,0,canvasEle.width,canvasEle.height);
       ctx.strokeRect(x,y,100,100)
-      ctx.strokeText('hhh',100,100);
+      ctx.strokeText('hhh',x+50,y+50);
       ctx.fillText('中国',300,300);
-      x+= xDistance;
+      x += xDistance;
+      y += yDistance;
       if(x >= canvasEle.width - 100){
-        xDistance = -1;
+        xDistance = -2;
       }
       if( x <= 0){
-        xDistance =1 ;
+        xDistance = 3 ;
       }
-
+      if(y >= canvasEle.height - 100){
+        yDistance = -3
+      }
+      if(y <= 0){
+        yDistance = 3;
+      }
     },15)
 
   </script>
