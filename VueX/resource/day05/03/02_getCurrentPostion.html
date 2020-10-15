@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="getLocation()">获取地理定位</button>
+
+  <script>
+    function getLocation() {
+      //获取Geolocation对象
+      let geo = navigator.geolocation;
+      //调用getCurrentPosition()方法来获取当前的位置
+      geo.getCurrentPosition((aaa) => {
+        console.log(aaa);
+      },(error)=>{
+        console.log(error);
+      });
+    }
+  </script>
+</body>
+
+</html>

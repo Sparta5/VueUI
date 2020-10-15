@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      width:600px;
+      margin:0 auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <p>请输入数字:<input type="text" id="number"></p>
+    <p><input type="button" value="计算" onclick="compute()"></p>
+    <p><span id="result"></span></p>
+  </div>
+  <script>
+    function compute(){
+      //获取输入框的信息
+      let numberVal = document.getElementById('number').value;
+      //创建web worke线程、(给工人传入url)
+      console.log(numberVal)
+      let worker = new Worker('./worker.js');
+      worker.postMessage(numberVal)//扔任何数字|值都可以
+      worker.addEventListener('message',(event)=>{
+        console.log(event)
+        document.getElementById('result').innerText = event.data;
+      })
+    }
+  </script>
+</body>
+</html>
