@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      width: 500px;height: 420px;
+      position: relative;
+      right: auto  ;
+      border: 1px solid red;
+    }
+    #address{      
+      width: 480px;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding:15px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <div id="address"></div>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=X2cLIkd2xZ36MKKIiQLRUcNVkLiMG6mF"></script>
+  <script>
+    //获取Geolocation对象
+    let geo = navigator.geolocation;
+    //调用getCurrentPosition()方法
+    geo.getCurrentPosition(
+      //获取到GeolocationPositionCoordinates对象
+      (position) => {
+        let coords = position.coords;
+        //获取经度
+        let longitude = coords.longitude;
+        //获取纬度
+        let latitude = coords.latitude;
+        //创建地图实例
+        let map = new BMap.Map('container');
+        //创建地图点坐标对象 -- Point对象
+        //let point = new BMap.Point(longitude,latitude);
+        let point = new BMap.Point(113.785168,34.765422);
+        //初始化地图实例
+        map.centerAndZoom(point,15)
+        //禁止地图拖拽功能
+        map.disableDragging();
+        //禁止鼠标滚动缩放地图
+        // map.disableScrollWheelZoom()
+        map.enableScrollWheelZoom()
+        
+
+        let size = new BMap.Size(100,100)
+        let nc = new BMap.NavigationControl({
+            //设置停靠位置为左上角
+            anchor:BMAP_ANCHOR_TOP_RIGHT,
+            offset:size,
+            //设置类型为平移、缩入及滑块
+            type:BMAP_NAVIGATION_CONTROL_LARGE,
+        });
+        map.addControl(nc);
+        // let panc = new BMap.PanoramaControl({
+        //   BMAP_STATUS_PERMISSION_DENIED
+        // }) 
+        /////////////////////////////
+        //*************创建覆盖物**********************//
+        //创建Size对象
+        let iconsize = new BMap.Size(32,32);
+        // 创建图标对象
+        let icon = new BMap.Icon('images/position.png',iconsize);
+        // 创建图像覆盖物对象
+        let marker = new BMap.Marker(point,{
+          icon:icon
+        });
+        map.addOverlay(marker);
+        //反地址解析
+        let geocoder = new BMap.Geocoder();
+        geocoder.getLocation(point,(result)=>{
+          document.getElementById('address').innerText = result.address;
+        })
+      },
+      (error) => {
+          console.log(error.code);
+          console.log(code.message);
+      }
+    )
+  </script>
+</body>
+</html>
