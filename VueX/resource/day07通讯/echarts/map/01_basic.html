@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #chart{
+      width: 400px;height: 400px;
+      border: 1px solid red;
+      margin: 0px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+  <script src="scripts/echarts.js"></script>
+  <script>
+    // console.log(echarts)
+    let divEle = document.getElementById('chart');
+    //创建图标实例
+    let chart = echarts.init(divEle,'',{
+      rederer:'canvas'
+    });
+    //调用图标实例的setOption()方法以完成图表的配置
+    chart.setOption({
+      //标题组件
+      title:{
+        //主标题内容
+        text:'2020年京东618销售统计图',
+        //距左侧的距离
+        left:'center',
+        target:'blank',
+        textStyle:{
+          color:'#0aaled',
+          fontSize:24
+        },
+        subtext:'截止到2020-06-19 00:00:00',
+        //副标题文本样式
+        subtextStyle:{
+          fontSize:16
+        },
+      },
+      //x轴
+      xAxis:{
+        type:'category',
+        data:['服装鞋帽','日用百货','图书音像','家居家具']
+      },
+      //y轴
+      yAxis:{
+
+      },
+      //系列
+      series:[
+        //柱状图
+        {
+          type:'bar',
+          data:[150,128,172,103]
+        },
+        //折线图
+        {
+          type:'line',
+          data:[150,128,172,103]
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

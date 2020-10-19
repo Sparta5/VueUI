@@ -16,13 +16,13 @@
             首页
             <img src="../assets/images/index_enabled.png" slot="icon" v-if="tabbar == 'index'">
             <img src="../assets/images/index_disabled.png" slot="icon" v-else>
-            </mt-tab-item>
+          </mt-tab-item>
           <mt-tab-item id="me">
             我的
             <img src="../assets/images/me_enabled.png" slot="icon" v-if="tabbar == 'me'">
             <img src="../assets/images/me_disabled.png" slot="icon" v-else>
             </mt-tab-item>
-        </mt-tabbar>
+          </mt-tabbar>
       </div>      
       <!-- 底部选项卡结束 -->
   </div>
