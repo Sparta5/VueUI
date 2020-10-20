@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="chart"></div>
+  <script src="scripts/echarts.min.js"></script>
+  <script src="scripts/map/js/china.js"></script>
+  <script>
+    let divEle = document.getElementById('chart');
+    //动态设置图表容器的宽度和高度
+    divEle.style.width = window.innerWidth + 'px';
+    divEle.style.height = window.innerHeight + 'px';
+    //创建图表实例
+    let chart = echarts.init(divEle, '', {
+      renderer: 'canvas'
+    });
+    //调用图表实例的setOption()方法以完成图表的配置
+    chart.setOption({
+      //标题组件
+      title: {
+        //主标题内容
+        text: '全国(含港澳台)疫情分布图',
+        //主标题的链接
+        link: 'http://www.jd.com',
+        //打开主标题链接的窗口形式(没有下划线)
+        target: 'blank',
+        //主标题的文本样式
+        textStyle: {
+          color: '#0aa1ed',
+          fontSize: 24
+        },
+        //副标题文本
+        subtext: '截止到2020-06-19 00:00:00',
+        //副标题文本样式
+        subtextStyle: {
+          fontSize: 16
+        },
+        //距左侧的距离
+        left: 'center'
+      },
+      //工具提示
+      tooltip: {
+        formatter: '{b}:{c}例'
+      },
+      //视觉映射
+      visualMap: [
+        //分段类型
+        {
+          //分段类型
+          type: 'piecewise',
+          //自定义分段数据
+          pieces: [
+            { min: 0, max: 0 },
+            { min: 1, max: 9 },
+            { min: 10, max: 99 },
+            { min: 100, max: 499 },
+            { min: 500, max: 999 },
+            { min: 1000, max: 999 },
+            { min: 10000 }
+          ],
+          inRange: {
+            color: ['#fff', '#fff4ef', '#ffe6da', '#fdb19b', '#e7856d', '#de512f', '#970a0f']
+          }
+        }
+      ],
+      //系列
+      series: [
+        {
+          //地图
+          type: 'map',
+          //地图类型
+          map: 'china',
+          //图表文本
+          label: {
+            show: true,
+            color: '#000'
+          },
+          data: [
+            ////////////////////
+            { name: '北京', value: 0 },
+            { name: '天津', value: Math.round(Math.random() * 1000) },
+            { name: '上海', value: Math.round(Math.random() * 1500) },
+            { name: '重庆', value: Math.round(Math.random() * 400) },
+            { name: '河北', value: 0 },
+            { name: '河南', value: Math.round(Math.random() * 2000) },
+            { name: '云南', value: 123 },
+            { name: '辽宁', value: 305 },
+            { name: '黑龙江', value: Math.round(Math.random() * 2000) },
+            { name: '湖南', value: 200 },
+            { name: '安徽', value: Math.round(Math.random() * 2000) },
+            { name: '山东', value: Math.round(Math.random() * 2000) },
+            { name: '新疆', value: Math.round(Math.random() * 2000) },
+            { name: '江苏', value: Math.round(Math.random() * 2000) },
+            { name: '浙江', value: Math.round(Math.random() * 2000) },
+            { name: '江西', value: Math.round(Math.random() * 2000) },
+            { name: '湖北', value: Math.round(Math.random() * 9000) },
+            { name: '广西', value: Math.round(Math.random() * 7000) },
+            { name: '甘肃', value: Math.round(Math.random() * 6000) },
+            { name: '山西', value: Math.round(Math.random() * 5000) },
+            { name: '内蒙古', value: Math.round(Math.random() * 4000) },
+            { name: '陕西', value: Math.round(Math.random() * 3000) },
+            { name: '吉林', value: Math.round(Math.random() * 2000) },
+            { name: '福建', value: Math.round(Math.random() * 2000) },
+            { name: '贵州', value: Math.round(Math.random() * 1000) },
+            { name: '广东', value: Math.round(Math.random() * 900) },
+            { name: '青海', value: Math.round(Math.random() * 800) },
+            { name: '西藏', value: Math.round(Math.random() * 700) },
+            { name: '四川', value: Math.round(Math.random() * 600) },
+            { name: '宁夏', value: Math.round(Math.random() * 500) },
+            { name: '海南', value: Math.round(Math.random() * 400) },
+            { name: '台湾', value: Math.round(Math.random() * 300) },
+            { name: '香港', value: Math.round(Math.random() * 200) },
+            { name: '澳门', value: Math.round(Math.random() * 1000) }
+            /////////////////// 
+          ]
+        },
+      ],
+      //调色盘
+      color: ['#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570']
+    });
+  </script>
+</body>
+
+</html>
