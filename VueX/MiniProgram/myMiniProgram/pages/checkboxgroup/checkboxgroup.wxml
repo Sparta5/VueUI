@@ -1,0 +1,6 @@
+<checkbox-group bindchange="changeEvent">
+  <checkbox value="1">看电影</checkbox>
+  <checkbox value="2">吃饭</checkbox>
+  <checkbox value="3">睡觉</checkbox>
+  <checkbox value="4">打豆豆</checkbox>
+</checkbox-group>

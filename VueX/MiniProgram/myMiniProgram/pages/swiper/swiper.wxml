@@ -1,0 +1,16 @@
+<!--pages/swiper/swiper.wxml-->
+<navigator url="/pages/navigator/navigator">返回</navigator>
+<swiper class="swiper" 
+        autoplay="true"
+        indicator-dots="true"
+        indicator-color="#e6e6e6"
+        indicator-active-color="#648"
+        circular="true"
+        interval="3500"
+        duration="8000">
+  <swiper-item><image src="/images/32c92da0f7bc47dd99ace65d3fbc21a7.jpg"></image></swiper-item>
+  <swiper-item><image src="/images/3ddb0df7a8b849e4b51763b4e592e54d.jpg"></image></swiper-item>
+  <swiper-item><image src="/images/841bd76ca474421483e9631517398a4f.jpg"></image></swiper-item>
+  <swiper-item><image src="/images/97472f387f5241c7a6b743d45e79b279.jpg"></image></swiper-item>
+  <swiper-item><image src="/images/f57f04bd563e44f18d41d8ca81509d01.jpg"></image></swiper-item>
+</swiper>

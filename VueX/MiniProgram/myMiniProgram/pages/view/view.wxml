@@ -1,0 +1,21 @@
+<view id="wrapper">111</view>
+<view class="box">111</view>
+<view class="box2">222</view>
+<view class="box3">222</view>
+<view class="box4">
+  <view class="son1">AA</view>
+  <view class="son2">BB</view>
+</view>
+<view 
+  class="box5"
+  hover-class="box5-hover"
+  hover-start-time="300"
+  hover-stay-time="1500">
+  <view class="box6" hover-stop-propagation="true">我是BOX5的儿子</view>
+</view>
+
+<view>
+  <image src="https://n.sinaimg.cn/mil/transform/579/w340h239/20201014/afe8-kakmcxe8380512.png"/>
+  <image src="../../images/qrcode.jpg" show-menu-by-longpress="true"></image>
+</view>
+  

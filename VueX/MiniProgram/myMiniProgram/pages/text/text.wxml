@@ -1,0 +1,9 @@
+<text>我是一个普通的文本</text>
+<text decode="true">
+    A&gt;B
+    B&lt;A
+    Tom&amp;John
+    I&apos;m a student.
+    A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B
+</text>
+<text user-select="true">你长按后，看看可以选定我吗?</text>

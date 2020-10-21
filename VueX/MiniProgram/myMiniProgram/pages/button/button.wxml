@@ -1,0 +1,6 @@
+<button type="primary" size="default">我是按钮</button>
+<button type="primary" size="default" plain="true">我是按钮</button>
+<button type="primary" size="default" loading="true">我是按钮</button>
+
+<!-- 为以下添加事件 -->
+<button type="primary" size="default" bindtap="tapEvent">我是按钮</button>

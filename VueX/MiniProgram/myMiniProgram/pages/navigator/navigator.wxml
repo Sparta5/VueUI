@@ -1,0 +1,4 @@
+<navigator url="/pages/swiper/swiper" open-type="navigate">轮播图组件</navigator>
+<navigator url="/pages/text/text" open-type="navigate">文本组件</navigator>
+
+<navigator url="/pages/index/index">首页</navigator>

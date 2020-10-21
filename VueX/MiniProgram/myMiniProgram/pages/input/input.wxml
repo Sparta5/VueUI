@@ -1,0 +1,4 @@
+<view>
+  <input type="text" placeholder="请输入搜索内容" bindinput="search"/>
+  <input type="idcard" placeholder="请输入身份证号" bindconfirm="card"/>
+</view>

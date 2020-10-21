@@ -1,0 +1,30 @@
+/* 样式导入 */
+@import '../../styles/global.wxss';
+#wrapper{
+  width:100%;
+  border:5rpx solid #00ff00;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.box{
+  border:2px solid #f00;
+}
+.box4 .son1{
+  border:5rpx solid #ff0;
+}
+.box4 > .son2{
+  border:5rpx dotted #900;
+}
+.box5{
+  margin:20px 0;
+  padding:10px;
+  border:2px solid #000;
+}
+.box5-hover{
+  border: 2px solid #f00;
+}
+.box6{
+  padding:10px;
+  border:2px solid #00ff00;
+}

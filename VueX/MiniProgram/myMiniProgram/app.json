@@ -1,5 +1,13 @@
 {
   "pages":[
+    "pages/switch/switch",
+    "pages/checkboxgroup/checkboxgroup",
+    "pages/input/input",
+    "pages/button/button",
+    "pages/navigator/navigator",
+    "pages/text/text",
+    "pages/swiper/swiper",
+    "pages/view/view",
     "pages/index/index",
     "pages/cart/cart",
     "pages/me/me",
@@ -12,7 +20,7 @@
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true,
     "backgroundTextStyle":"dark"
-  },
+  },                    
   "tabBar": {
     "color":"#808080",
     "selectedColor": "#0aa1ed",
@@ -32,6 +40,12 @@
       {
         "pagePath": "pages/me/me",
         "text": "我的",
+        "iconPath": "images/me_disabled.png",
+        "selectedIconPath": "images/me_enabled.png"
+      },
+      {
+        "pagePath": "pages/view/view",
+        "text": "view",
         "iconPath": "images/me_disabled.png",
         "selectedIconPath": "images/me_enabled.png"
       }
