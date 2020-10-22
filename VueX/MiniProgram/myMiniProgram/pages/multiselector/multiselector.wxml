@@ -1,0 +1,6 @@
+<picker 
+  mode="multiSelector"
+  range="{{schools}}"
+  bindchange="schoolEvent">
+  学校：
+</picker>

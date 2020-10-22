@@ -1,0 +1,6 @@
+view{
+  margin-bottom:20rpx;
+}
+.red{
+  color:red;
+}

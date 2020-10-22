@@ -1,5 +1,13 @@
 {
   "pages":[
+    "pages/params/params",
+    "pages/bind/bind",
+    "pages/data/data",
+    "pages/region/region",
+    "pages/date/date",
+    "pages/multiselector/multiselector",
+    "pages/selector/selector",
+    "pages/slider/slider",
     "pages/switch/switch",
     "pages/checkboxgroup/checkboxgroup",
     "pages/input/input",

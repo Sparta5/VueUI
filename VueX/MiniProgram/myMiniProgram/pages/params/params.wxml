@@ -1,0 +1,11 @@
+<button
+  type="primary"
+  bindtap="tapEvent"
+  data-index="3"
+  data-product-id="6"
+  data-userId="10"
+  >
+  将数字3作为参数传递
+</button>
+
+<switch bindchange="changeEvent">开关</switch>

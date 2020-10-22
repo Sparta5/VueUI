@@ -1,0 +1,25 @@
+<view class="parent" bindtap="parentEvent">
+  <view class="son" bindtap="sonEcent">bindtap</view>
+</view>
+
+<view class="parent" bind:tap="parentEvent">
+  <view class="son" bind:tap="sonEvent">bind:tap</view>
+</view>
+
+<view class="parent" catchtap="parentEvent">
+  <view class="son" catchtap="sonEvent">catchtap</view>
+</view>
+
+<view 
+  class="parent" 
+  bindtap="tapEvent"
+  bindlongtap="longtapEvent">
+  同时添加了longtap和tap事件
+</view>
+
+<view 
+  class="parent" 
+  bindtap="tapEvent" 
+  bindlongpress="longtapEvent">
+  同时添加了longpress和tap事件
+</view>

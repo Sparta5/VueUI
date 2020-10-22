@@ -1,0 +1,11 @@
+<picker mode="selector" range="{{sex}}"
+  bindchange="sexChange"
+  >
+  性别：
+</picker>
+
+<picker mode="selector" range="{{country}}"
+ range-key="name"
+ bindchange="countryChange">
+国家：
+</picker>

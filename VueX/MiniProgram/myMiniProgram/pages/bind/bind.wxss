@@ -1,0 +1,9 @@
+/* pages/bind/bind.wxss */.parent{
+  margin-bottom: 20px;
+  padding:30rpx;
+  border:5px solid #f00;
+}
+.son{
+  padding:30rpx;
+  border:5px solid #000;
+}

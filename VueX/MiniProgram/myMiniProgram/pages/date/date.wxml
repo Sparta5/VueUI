@@ -1,0 +1,17 @@
+<picker mode="date" 
+    start="2010-1-1" 
+    end="2020-12-31" 
+    value="2005-5-1" 
+    fields="day"
+    bindchange="dateChange">
+  日期：
+</picker>
+
+<picker
+  mode="time"
+  start="9:30"
+  end="18:00"
+  value="12:00"
+  bindchange="time">
+  出行时间
+</picker>

@@ -1,0 +1,31 @@
+<view>姓名:{{username}}</view>
+<view>性别:{{sex ? '女' : '男'}}</view>
+<view>工资:{{salary}}</view>
+<view>税款:{{salary * 0.15}}</view>
+<view><image src="{{src}}"></image></view>
+<view class="{{className}}">我使用了动态的样式类</view>
+<view style="{{inline}}">我使用了行内样式</view>
+<view wx:for="{{users}}" wx:key="index" wx:for-item="user">
+  序号：{{index + 1}}-
+  姓名：{{user.username}}
+  性别：{{user.sex ? '男' :'女'}}
+</view>
+
+<view>用户列表如下</view>
+<view 
+  wx:for="{{users}}"
+  wx:for-item="user"
+  wx:for-index="key"
+  wx:key="user"
+  >
+  序号：{{key + 1}}-
+  姓名：{{user.username}}
+  性别：{{user.sex ? '男' :'女'}}
+  学历：
+  <block wx:if="{{user.education == 1}}">专科</block>
+  <block wx:elif="{{user.education == 2}}">本科</block>
+  <block wx:elif="{{user.education == 3}}">研究生</block>
+  <block wx:elif="{{user.education == 4}}">硕士</block>
+  <block wx:elif="{{user.education == 5}}">博士</block>
+  <block wx:elif="{{user.education == 6}}">博士后</block>
+</view>
