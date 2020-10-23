@@ -1,9 +1,11 @@
 {
   "pages":[
+    "pages/todo/todo",
+    "pages/region/region",
+    "pages/binding/binding",
     "pages/params/params",
     "pages/bind/bind",
     "pages/data/data",
-    "pages/region/region",
     "pages/date/date",
     "pages/multiselector/multiselector",
     "pages/selector/selector",

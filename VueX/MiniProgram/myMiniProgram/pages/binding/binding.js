@@ -1,18 +1,19 @@
-// pages/region/region.js
+// pages/binding/binding.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region:'四川省-成都市-锦江区',
-    value:['眉山市','彭山县','灵石']
+    username:'Tom'
   },
-  regionChange(event){
-    let array = event.detail.value;
-    let address =array.join('-');
+  inputEvent(event){
+    let value = event.detail.value;
+    console.log(value);
+    //因为小程序中不支持数据劫持所以不能通过this.data.username='Rose'的方式来修改
+    // this.data.username;//出不来结果
     this.setData({
-      value:address
+      username:value
     })
   },
   /**
