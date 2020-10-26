@@ -1,0 +1,11 @@
+<view class="container">
+  <view wx:for="{{epub}}" wx:key="index">
+    {{item.title}} 
+  </view>
+  <view>-------------------------------</view>
+  <view wx:for="{{books}}" wx:key="index">
+    {{item.title}}
+    {{item.majorCate}}
+    <image src="/images/2060594_302b158b23f84f719668d373ffa56546 .jpg"></image>
+  </view>
+</view>

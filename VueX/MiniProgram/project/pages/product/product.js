@@ -1,46 +1,53 @@
-// pages/navigator/navigator.js
+// pages/product/product.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:0,
+    areaid:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('B(navigator).onLoad...')
+    let id = options.id;
+    let areaid = options.areaid;
+    this.setData({
+      id:id,
+      areaid:areaid
+    });
+    console.log('页面的onLoad...');
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('B(navigator).onReady...');
+    console.log('页面的onReady....');
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('B(navigator).onShow...');
+    console.log('页面的onShow...');
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log('B(navigator).onHide...');
+     console.log('页面的onHide...');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('B(navigator).onUnload...');
+    console.log('页面卸载--onUnload...');
   },
 
   /**

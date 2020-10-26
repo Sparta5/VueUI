@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="h1">首页 -- A</view>
+
+<navigator url="/pages/navigator/navigator">跳转到Navigator(B)页面</navigator>
+
+<view><button type="primary" bindtap="navigatorTap">跳转到Navigator(B)页面</button></view>
+
+<navigator url="/pages/cart/cart" open-type="switchTab">switchTab跳转到Cart(C)页面</navigator>
+

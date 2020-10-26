@@ -1,46 +1,55 @@
-// pages/navigator/navigator.js
+// pages/region/region.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    region:'山东省济南市市中区',
+    value:['山东省','济南市','市中区']
   },
+
+  regionChange(event){
+    let region = event.detail.value;
+    region = region.join('');
+    this.setData({
+      region:region
+    });
+  },  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('B(navigator).onLoad...')
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('B(navigator).onReady...');
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('B(navigator).onShow...');
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log('B(navigator).onHide...');
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('B(navigator).onUnload...');
+
   },
 
   /**

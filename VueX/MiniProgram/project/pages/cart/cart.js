@@ -1,4 +1,4 @@
-// pages/navigator/navigator.js
+// pages/cart/cart.js
 Page({
 
   /**
@@ -12,35 +12,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('B(navigator).onLoad...')
+    console.log('cart(C).onLoad...');
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('B(navigator).onReady...');
+    console.log('cart(C).onReady...');
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('B(navigator).onShow...');
+    console.log('cart(C).onShow...');
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log('B(navigator).onHide...');
+    console.log('cart(C).onHide...');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('B(navigator).onUnload...');
+    console.log('cart(C).onUnload...');
   },
 
   /**

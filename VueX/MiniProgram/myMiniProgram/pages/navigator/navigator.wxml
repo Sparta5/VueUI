@@ -2,3 +2,5 @@
 <navigator url="/pages/text/text" open-type="navigate">文本组件</navigator>
 
 <navigator url="/pages/index/index">首页</navigator>
+<navigator url="/pages/index/index" open-type="navigateBack">返回</navigator>
+<text>pages/navigator/navigator.wxml</text>

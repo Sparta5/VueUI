@@ -1,0 +1,8 @@
+<view>Index--(想像成A页面)</view>
+<navigator url="/pages/detail/detail?id=1&cid=5">文章1</navigator>
+<navigator url="/pages/detail/detail?id=2&cid=6">文章2</navigator>
+<navigator url="/pages/navigate/navigate" open-type="navigate">navigate跳转</navigator>
+
+<navigator url="/pages/cart/cart" open-type="switchTab">跳转c Cart</navigator>
+
+<button type="primary" bindtap="tap">navigate跳转到B页面</button>

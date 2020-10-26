@@ -1,0 +1,7 @@
+/**app.wxss**/
+.h1{
+  font-size:36px;
+  color:red;
+  margin-bottom:20rpx;
+  text-align: center;
+}

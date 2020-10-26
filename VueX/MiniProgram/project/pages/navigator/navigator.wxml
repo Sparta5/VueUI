@@ -1,0 +1,16 @@
+<!--pages/navigator/navigator.wxml-->
+<view class="h1">Navigator -- B</view>
+
+<navigator url="/pages/index/index" open-type="navigateBack">返回</navigator>
+
+<view>
+  <button type="primary" bindtap="navigateBackTap">返回</button>
+</view>
+
+<navigator url="/pages/cart/cart" open-type="switchTab">购物车(有tabBar)</navigator>
+
+<navigator url="/pages/detail/detail" open-type="redirect">redirect到Detail页面(D)</navigator>
+
+<navigator url="/pages/page01/page01" open-type="reLaunch">reLaunch到Page01页面(E)</navigator>
+
+<navigator url="/pages/page01/page01" open-type="reLaunch">reLaunch到Page01页面(E)</navigator>

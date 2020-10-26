@@ -1,46 +1,58 @@
-// pages/navigator/navigator.js
+// pages/binding/binding.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      username:'Tom'
+  },
 
+  inputEvent(event){
+    //获取用户输入的数据
+    let value = event.detail.value;
+    console.log(value);
+    //因为在小程序中不存在数据劫持,
+    //所以不能直接通过this.data.username='Rose'的方式来修改data中的数据
+    //只能通过this.setData()方法来实现，this指当前的页面对象 -- Page
+    this.setData({
+      username:value
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('B(navigator).onLoad...')
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('B(navigator).onReady...');
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('B(navigator).onShow...');
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log('B(navigator).onHide...');
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('B(navigator).onUnload...');
+
   },
 
   /**

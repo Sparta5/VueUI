@@ -1,0 +1,4 @@
+<view>Cart页面(想像成D页面)</view>
+<navigator url="/pages/relaunch/relaunch" open-type="reLaunch">跳转到relaunch页面(reLaunch方式)</navigator>
+e
+<navigator url="/pages/navigate/navigate" open-type="reLaunch">跳转到navigator页面(reLaunch方式)</navigator>navigator

@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('B(navigator).onLoad...')
+    console.log('B(navigator).onLoad...');
   },
 
   /**
@@ -42,7 +42,11 @@ Page({
   onUnload: function () {
     console.log('B(navigator).onUnload...');
   },
-
+  navigateBackTap(){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

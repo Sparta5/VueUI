@@ -1,0 +1,5 @@
+<view>List--(想像成C页面)</view>
+<navigator url="/pages/redirect/redirect" open-type="redirect">链接到redirect(redirect跳转)</navigator>
+<navigator url="/pages/relaunch/relaunch" open-type="reLaunch">链接到relaunch(reLaunch跳转)</navigator>
+
+<navigator url="/pages/cart/cart" open-type="switchTab">链接到cart页面(有tabBar)</navigator>
