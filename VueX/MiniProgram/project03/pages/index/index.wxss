@@ -19,7 +19,7 @@
   margin-bottom: 15rpx;
   border-bottom:1rpx dotted #ccc;
 }
-.bookItem{
+.bookItem navigatot{
   display: flex;
   align-items: top;
   margin-bottom:20rpx;

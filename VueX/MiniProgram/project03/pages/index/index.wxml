@@ -42,15 +42,19 @@
   <view  class="cateItem" wx:for="{{epub}}" wx:key="index">
     <view class="header">{{item.title}}</view>
     <!-- 图书列表区域开始 -->
-    <view>
-        <view class="bookItem">
-            <image src=""></image>
-            <view class="bookInfo">
-                <view class="bookTitle">鬼不语之仙墩鬼泣（精装）</view>
-                <view class="minorCate">惊悚恐怖</view>
-                <view class="author">天下霸唱</view>
-            </view>
-        </view>
+    <view wx:for="{{item.books}}" wx:for-key="key" wx:key="key" wx:for-item="book">
+         <!-- wx:for="item.books" wx:for-key="key" wx:key="key" wx:for-item="items" wx:item="items"> -->
+        <navigator url="/pages/detail/detail?id={{book._id}}">
+          <view class="bookItem">
+              <image src="http://statics.zhuishushenqi.com{{book.cover}}"></image>
+              <view class="bookInfo">
+                  <view class="bookTitle">{{book.title}}</view>
+                  <view class="minorCate">{{book.minorCate}}</view>
+                  <view class="author">{{book.author}}</view>
+              </view>
+          </view>          
+        </navigator>
+
     </view>
     <!-- 图书列表区域结束 -->
   </view>

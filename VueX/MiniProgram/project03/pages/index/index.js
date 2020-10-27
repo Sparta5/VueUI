@@ -30,7 +30,6 @@ Page({
             url: 'https://api.zhuishushenqi.com/ranking/'+elem._id,
             method:'GET',
             success:res=>{
-              // console.log(res)
               let obj={};
               obj.title=elem.title;
               obj.books=res.data.ranking.books
@@ -38,7 +37,7 @@ Page({
               this.setData({
                 epub:epubs
               })
-              console.log(this.data.epub)
+              // console.log(this.data.epub)
             }
           })
         })
