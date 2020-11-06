@@ -12,3 +12,10 @@
 .danger:hover {
   box-shadow: 2px 2px 2px purple;
 }
+
+.desc {
+  color: blue;
+  font-size: 25px;
+  background-color: orange;
+  font-weight: bold;
+}
