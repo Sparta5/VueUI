@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    //  类方式 属性传参
+    class HelloName extends React.Component {
+      //会有一个构造函数
+
+      render() {
+        
+        return <h2>Hello,{this.props.name}</h2>
+      }
+    }
+
+    let h = new HelloName( {name:"东东"} ).render();
+
+    //语法糖
+    h = <HelloName name="小月" />;
+
+    let more = (
+      <div>
+        <HelloName name="小月" />
+        <HelloName name="小月" />
+        <HelloName name="小月" />
+        <HelloName name="小月" />
+        <HelloName name="小月" />
+      </div>
+    )
+
+    ReactDOM.render(more,root)
+  </script>
+</body>
+</html>

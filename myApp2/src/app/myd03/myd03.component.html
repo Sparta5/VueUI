@@ -1,0 +1,25 @@
+<p>myd03 works!</p>
+
+<div *ngIf="res" style="width: 700px;margin: 0 auto;">
+  <div>
+    <div
+      *ngFor="let item of res.data"
+      style="
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px dashed gray;
+      ">
+      <span>{{ item.title }}</span>
+      <span>{{ item.pubTime | date: "y-MM-dd" }}</span>
+    </div>
+  </div>
+  <div class="pages">
+    <button  (click)="getData(-1)" [disabled]="page>0">上一页</button>
+    <span *ngFor="let item of range(res.pageCount)"
+      [ngClass]="{cur:res.pageNum == item}"
+      (click)="getData(item)">{{item}}</span>
+    <button (click)="getData(res.pageNum)" *ngIf="res.pageNum < res.pageCount">下一页</button>
+    <span *ngif="res.pageNum >= res.pagecount" class="disable"></span>
+  </div>
+</div>

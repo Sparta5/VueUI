@@ -1,0 +1,10 @@
+<p>myc06 works!</p>
+
+<button (click)="us.names.push('果果是猪')">添加</button>
+
+<ul>
+  <li  *ngFor="let item of us.names; let i = index">
+    <span>{{item}}</span>
+    <button (click)="us.names.splice(i, 1)">删除</button>
+  </li>
+</ul>

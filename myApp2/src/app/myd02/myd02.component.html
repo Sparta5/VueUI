@@ -1,0 +1,12 @@
+<p>myd02 works!</p>
+
+
+<div *ngIf="res">
+  <img
+    [src]="item.img"
+    alt=""
+    *ngFor="let item of res.result"
+    width="100"
+    height="100"
+  />
+</div>

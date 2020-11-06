@@ -1,0 +1,19 @@
+<p>work01 works!</p>
+<div class="banner">
+  <img src="/assets/images/{{names[curP]}}" alt="">
+  <div class="pages">
+    <span *ngFor="let item of names; let i = index"
+      [ngClass]="{ normal: curP != i, cur: curP == i }"
+       (mouseover)="curP = i"></span>
+  </div>
+  <div></div>
+  <div>
+    <button (click)="curP = curP - 1" *ngIf="curP > 0">上一页</button>
+    <button *ngFor="let item of names; let i = index"
+      (click)="curP = i"
+      [disabled]="curP == i">
+      {{ i + 1}}
+    </button>
+    <button (click)="curP = curP + 1" *ngIf="curP<names.length - 1">下一页</button>
+  </div>
+</div>

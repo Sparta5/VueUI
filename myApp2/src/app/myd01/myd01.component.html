@@ -1,0 +1,16 @@
+<p>myd01 works!</p>
+
+<!-- Cannot read property 'result' of undefined -->
+<!-- 不能够对 undefined 读取 属性 result -->
+
+<!-- res的值是请求完毕后才赋值;  请求完毕前没有值;  没有值就不应该用 -->
+<!-- 解决: 判断res 有值, 再渲染 -->
+<div *ngIf="res">
+  <div *ngFor="let item of res.result">
+    <img [src]="item.image" alt="" />
+    <div>
+      <span>{{ item.title }}</span>
+      <span>{{ item.passtime }}</span>
+    </div>
+  </div>
+</div>
