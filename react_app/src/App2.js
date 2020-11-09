@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 
 export default class App extends Component {
-  // UI user interface 用户界面
-  state = { num: 1 };
+  state = { isLogin:true }
 
-  //_开头：代码规范，用_开头
-  _doAdd = () => {
-
-    // setState() 来更新  
-    this.setState({ num: this.state.num + 1 })
-  };
+  show(){
+    if(this.state.val == true){
+      return (
+        <h3>欢迎，果果 
+          <button onClick={()=>this.setState({ isLogin:false })}>退出</button> 
+        </h3>);
+    }else{
+      return (
+      <h3>
+        <button onClick={()=>this.setState({ isLogin:true })}>登录</button>
+        <button>注册</button>        
+      </h3>);
+    }    
+  }
 
   render() {
-    return (
-      <div>
-        <div>{this.state.num}</div>
-        <button onClick={this._doAdd}>增加</button>
-      </div>
-    )
+    return <div>
+      <span>{this.show()}</span>
+    </div>
   }
 }

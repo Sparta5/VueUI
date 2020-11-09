@@ -1,31 +1,50 @@
 import React, { Component } from 'react'
 
 export default class App extends Component {
+  names = ["亮亮","然然","华哥","小新","果子"];
 
-  //事件的 this 指向
+  names_btns = [
+    <button key={0}>亮亮</button>,
+    <button key={1}>然然</button>,
+    <button key={2}>华哥</button>,
+    <button key={3}>小新</button>,
+    <button key={4}>果子</button>,
+  ]
+  showNames() {
+    // 循环遍历 names
+    let arr=[];
+    this.names.forEach((item,index) => {
+      let btn = <button key={index}>{item}</button>;
+      arr.push(btn)
+    });
+    return arr;
+  }
 
-  /**
-   * 
-   * 储备知识：
-   * 普通函数： this指向 obj.xxx();  xxx()函数中的this 指向obj
-   * 箭头函数： this指向 obj.xxx();  xxx()
-   * 
-   **/
+  showNames2() {
+    let arr=[];
+    this.names.forEach((item,index) => {
+      let color = ["greeen" , "blue"][index % 2];//数组下标
+      let li = (
+        // <li key={index} style={{ color:index % 2 === 0 ? "green" : "blue" }}>
+        //   {item}
+        // </li>
+      <li key={index} style={{color}}>
+        {item}
+      </li>
+      );
+      arr.push(li)
+    })
+    return arr;
+  }0
+  
 
-   state = { num:1 };
-
-   _doAdd = () => {
-     this.setState({num:this.state.num + 1})
-   }
-   
   render() {
     return (
       <div>
-        <h2>{this.state.num}</h2>
-        <button onClick={this._doAdd.bind(this)}>普通函数</button>
-
-        {/*解决方案2*/}
-        <button onClick={()=> this._doAdd()}>普通函数</button>
+        <div>{this.names}</div>
+        <div>{this.names_btns}</div>
+        <div>{this.showNames()}</div>
+        <div>{this.showNames2()}</div>
       </div>
     )
   }

@@ -1,21 +1,28 @@
-.danger{
-  color: "blue";
-  color: black;
-  font-weight: bold;
+.pages {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pages > span {
   display: inline-block;
-  padding: 10px;
-  border-radius:"4px";
-  
-  user-select:none;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid black;
+  color: black;
+
+  user-select: none;
+  margin: 0 2px;
 }
 
-.danger:hover {
-  box-shadow: 2px 2px 2px purple;
-}
-
-.desc {
-  color: blue;
-  font-size: 25px;
+.pages > span:not(.disable):hover {
+  color: white;
   background-color: orange;
-  font-weight: bold;
+  border-color: orange;
+  cursor: pointer;
+}
+
+/*不可用*/
+.pages > .disable{
+  color: lightgray;
+  border-color: lightgray;
 }
