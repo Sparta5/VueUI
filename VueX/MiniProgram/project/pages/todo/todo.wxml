@@ -2,10 +2,7 @@
 <view class="hr"></view>
 <!-- 头部区域开始 -->
 <view class="todo-header">
-  <input bindinput="inputEvent"
-       placeholder="请输入待办事项" 
-       value="{{todoItem}}"
-        type="text"></input>
+  <input placeholder="请输入待办事项" type="text" bindinput="inputEvent" value="{{todoItem}}"></input>
   <button type="primary" bindtap="addEvent">添加新事项</button>
 </view>
 <!-- 头部区域结束 -->
@@ -14,13 +11,19 @@
   <!-- 不存在待办事项开始 -->
   <text wx:if="{{todoList.length == 0}}">提示：当前没有待办事项</text>
   <!-- 不存在待办事项结束 -->
-  <!-- 单一事项列表 -->
   <block wx:else>
+    <!-- 单一事项列表 -->
     <view class="todo-list-item" wx:for="{{todoList}}" wx:key="index">
-      <text>{{index+1}}.{{item}}</text>
-      <button type="warn" size="mini" data-index="{{index}}" bindtap="removeEvent">删除</button>
-    </view>    
+      <text>{{index+1}}.{{item}}</text>   
+      <button 
+        type="warn" 
+        size="mini" 
+        data-index="{{index}}" 
+        bindtap="removeEvent">
+        删除
+      </button>
+    </view> 
+    <!-- 单一事项结束 -->
   </block>
-  <!-- 单一事项结束 -->
 </view>
 <!-- 待办事项列表结束 -->

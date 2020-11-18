@@ -1,0 +1,6 @@
+
+<view>
+  <picker mode="region" bindchange="regionChange" value="{{value}}">
+    请选择配送地址:{{region}}
+  </picker>
+</view>

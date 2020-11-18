@@ -1,0 +1,2 @@
+<!--pages/product/product.wxml-->
+<text>现在显示的是区域号为{{areaid}}的商品号为{{id}}的详细信息</text>

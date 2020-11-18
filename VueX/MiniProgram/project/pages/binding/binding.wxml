@@ -1,0 +1,5 @@
+<input 
+  type="text" 
+  placeholder="请输入用户名"
+  bindinput="inputEvent"/>
+<view>您输入的用户名是:{{username}}</view>
