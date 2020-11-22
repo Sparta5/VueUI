@@ -1,0 +1,33 @@
+.banner {
+  width: 300px;
+}
+
+.banner > img {
+  width: 100%;
+  height: 150px;
+}
+
+.pages {
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  margin-top: -25px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.pages >span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 0 2px;
+}
+/*普通点*/
+.pages > .normal{
+  background-color: white;
+}
+
+/*选中点*/
+.pages > .cur {
+  background-color: seagreen;
+}

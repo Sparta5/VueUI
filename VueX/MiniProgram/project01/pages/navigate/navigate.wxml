@@ -1,0 +1,5 @@
+<view>Navigate--(想像成B页面)</view>
+<navigator url='/pages/index/index' open-type="navigateBack">navigateBack跳转</navigator>
+<navigator url="/pages/list/list" open-type="navigate">链接到list页面(navigate跳转)</navigator>
+------
+<navigator url="/pages/page01/page01" open-type="reLaunch">链接到list页面(navigate跳转)</navigator>

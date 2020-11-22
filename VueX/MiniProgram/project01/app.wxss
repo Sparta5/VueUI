@@ -1,0 +1,8 @@
+view{
+  font-size:22px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+navigator{
+  margin-bottom:15rpx;
+}

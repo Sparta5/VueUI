@@ -1,0 +1,30 @@
+.pages {
+  margin: 15px;
+  text-align: center;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pages > span {
+  display: inline-block;
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: gray;
+}
+
+.pages > span:not(.cur):not(.disable):hover {
+  color: orange;
+  border-color: orange;
+  cursor: pointer;
+}
+
+
+.pages > .cur {
+  background-color: orange;
+  color: white;
+  border-color: orange                                   ;
+}

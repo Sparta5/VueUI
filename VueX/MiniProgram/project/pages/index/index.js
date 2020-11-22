@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+<<<<<<< HEAD
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -50,5 +51,36 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+=======
+    epub:[]
+  },
+  navigatorTap(){
+
+  },
+  onLoad(options){
+    console.log('A(index).onLoad...');
+      wx.navigateTo({
+      url: '/pages/navigator/navigator',
+      method:'GET',
+      success:res=>{
+        this.setData({
+          epub:res.data.epub
+        })
+        console.log(res.data.epub)
+      }
+    })
+  },
+  onShow(){
+    console.log('A(index).onShow...');
+  },
+  onReady(){
+    console.log('A(index).onReady...');
+  },
+  onHide(){
+    console.log('A(index).onHide...');
+  },
+  onUnload(){
+    console.log('A(index).onUnload...');
+>>>>>>> 22bd5f698e6e0939a733512cec623f8f5046b0b3
   }
 })

@@ -1,0 +1,5 @@
+<!--pages/detail/detail.wxml-->
+<navigator url="/pages/redirect/redirect">
+  跳转到redirect
+</navigator>
+<text>pages/detail/detail.wxml</text>

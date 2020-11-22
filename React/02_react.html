@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+
+    let time = new Date().toLocaleTimeString();
+
+    // React的思想：使用函数封装方式 简化操作
+    let h2=React.createElement(
+      "h2",
+      { id: "t1",className:"danger"},
+      "时间" + time
+    );
+
+    ReactDOM.render(h2,root)
+  </script>
+</body>
+</html>

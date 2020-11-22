@@ -35,7 +35,11 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
+<<<<<<< HEAD
   "libVersion": "2.13.1",
+=======
+  "libVersion": "2.13.2",
+>>>>>>> 22bd5f698e6e0939a733512cec623f8f5046b0b3
   "appid": "wx95c63d56211aadaa",
   "projectname": "project",
   "debugOptions": {
@@ -47,6 +51,7 @@
   "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
+<<<<<<< HEAD
       "current": -1,
       "list": []
     },
@@ -68,6 +73,23 @@
     },
     "miniprogram": {
       "current": -1,
+=======
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+>>>>>>> 22bd5f698e6e0939a733512cec623f8f5046b0b3
       "list": []
     }
   }

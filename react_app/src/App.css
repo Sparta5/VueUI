@@ -1,0 +1,28 @@
+.pages {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pages > span {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid black;
+  color: black;
+
+  user-select: none;
+  margin: 0 2px;
+}
+
+.pages > span:not(.disable):hover {
+  color: white;
+  background-color: orange;
+  border-color: orange;
+  cursor: pointer;
+}
+
+/*不可用*/
+.pages > .disable{
+  color: lightgray;
+  border-color: lightgray;
+}

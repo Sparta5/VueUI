@@ -1,0 +1,18 @@
+<table>
+  <tr border="1">
+    <td>序号</td>
+    <td>姓名</td>
+    <td>年龄</td>
+    <td>性别</td>
+    <td>政治面貌</td>
+  </tr>
+  <tr *ngFor="let item of data; let i = index"
+    [ngStyle]="{'background-color':baColor(item.age)}"
+    style="color:white">
+    <td>{{ i + 1 }}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.age}}</td>
+    <td>{{item.sex | gender}}</td>
+    <td>{{item.zzmm | zzmm}}</td>
+  </tr>
+</table>
