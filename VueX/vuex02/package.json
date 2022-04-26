@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@easydarwin/easywasmplayer": "^4.0.13",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "qs": "^6.9.1",

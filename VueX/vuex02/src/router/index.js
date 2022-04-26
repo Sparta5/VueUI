@@ -44,6 +44,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/video",
+    name: "Video",
+    // route level code-splitting
+    // this generates a separate chunk (video.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "video" */ "../views/video.vue"),
+  },
 ];
 
 const router = new VueRouter({

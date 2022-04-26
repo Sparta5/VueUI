@@ -7,8 +7,9 @@
       <router-link to="/changeage">修改年龄</router-link>
       <router-link to="/addproduct">添加信息</router-link>
       <router-link to="/ajax">加入购物车</router-link>
+      <router-link to="/video">视频</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
